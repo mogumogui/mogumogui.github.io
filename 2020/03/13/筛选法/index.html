@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/mogumogui.github.io/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/mogumogui.github.io/images/plant.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/mogumogui.github.io/images/plant.png?v=7.4.0">
+  <link rel="mask-icon" href="/mogumogui.github.io/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/mogumogui.github.io/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/mogumogui.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mogumogui.github.io/',
+    scheme: 'Muse',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="一、引言  在平时做题目或者进行运算的时候，素数的出现次数总是十分频繁。这里总结了一些常见的判定素数和计算某个范围内素数个数的一些算法。部分代码来源于 kuangbin 的模板，嗯毕竟都是跟着这个学的… 二、朴素判断素数算法 就判断素数而言，事实上是非常简单的了。根据定义，判断一个整数n是否是素数，只需要去判断在整数区间[2, n-1]之内，是否具有某个数m，使得n % m == 0。代码可以这">
+<meta name="keywords" content="算法学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="筛选法">
+<meta property="og:url" content="https://github.com/mogumogui/mogumogui.github.io/2020/03/13/筛选法/index.html">
+<meta property="og:site_name" content="MUSHROOM">
+<meta property="og:description" content="一、引言  在平时做题目或者进行运算的时候，素数的出现次数总是十分频繁。这里总结了一些常见的判定素数和计算某个范围内素数个数的一些算法。部分代码来源于 kuangbin 的模板，嗯毕竟都是跟着这个学的… 二、朴素判断素数算法 就判断素数而言，事实上是非常简单的了。根据定义，判断一个整数n是否是素数，只需要去判断在整数区间[2, n-1]之内，是否具有某个数m，使得n % m == 0。代码可以这">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-13T09:04:31.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="筛选法">
+<meta name="twitter:description" content="一、引言  在平时做题目或者进行运算的时候，素数的出现次数总是十分频繁。这里总结了一些常见的判定素数和计算某个范围内素数个数的一些算法。部分代码来源于 kuangbin 的模板，嗯毕竟都是跟着这个学的… 二、朴素判断素数算法 就判断素数而言，事实上是非常简单的了。根据定义，判断一个整数n是否是素数，只需要去判断在整数区间[2, n-1]之内，是否具有某个数m，使得n % m == 0。代码可以这">
+  <link rel="canonical" href="https://github.com/mogumogui/mogumogui.github.io/2020/03/13/筛选法/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>筛选法 | MUSHROOM</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/mogumogui.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MUSHROOM</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">dominant lucky around us!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/mogumogui.github.io/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/mogumogui.github.io/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/mogumogui.github.io/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/mogumogui.github.io/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/mogumogui.github.io/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/mogumogui.github.io/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Schedule</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/mogumogui.github.io/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+
+    <a href="/mogumogui.github.io/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>Commonweal 404</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/03/13/筛选法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">筛选法
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-03-13 23:27:07 / Modified: 17:04:31" itemprop="dateCreated datePublished" datetime="2020-03-13T23:27:07+08:00">2020-03-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>
+一、引言
+
+</p><p>在平时做题目或者进行运算的时候，素数的出现次数总是十分频繁。这里总结了一些常见的判定素数和计算某个范围内素数个数的一些算法。部分代码来源于 kuangbin 的模板，嗯毕竟都是跟着这个学的…</p>
+<p>二、朴素判断素数算法</p>
+<p>就判断素数而言，事实上是非常简单的了。根据定义，判断一个整数n是否是素数，只需要去判断在整数区间[2, n-1]之内，是否具有某个数m，使得n % m == 0。代码可以这么写：</p>
+<p>int isPrime(int n) {<br>    int i;<br>    for (i = 2; i &lt; n; ++i) {<br>        if (n % i == 0) return 0;<br>    }<br>    return 1;<br>}</p>
+<p>事实上，这个算法是O(n)的，感觉是很快了，但是依旧无法满足需求。所以有一个算法是O(sqrt(n))的算法。代码可以这么写：</p>
+<p>int isPrime(long long n) {<br>    long long i;<br>    for (i = 2; i * i &lt;= n; ++i) {<br>        if (n % i == 0) return 0;<br>    }<br>    return 1;<br>}</p>
+<p>原理很巧妙，也仅仅是把代码的i &lt; n变成了i * i &lt;= n而已，但是优化却是极其高的。可能你会注意到，在上一份代码里面，我定义的n为int类型，而后面一份代码，我却定义成了long long，这是因为在1s内，上一份代码能判断出来的数量级为1e8，而后面一份代码判断出来的数量级却几乎可以达到1e16。而原因仅仅是因为a * b = c的话一旦a是c的约数，那么b也是，如果a不是，那么b也不是。<br>这个方法也可以称作试除法。</p>
+<p>三、Miller_Rabin素性测试</p>
+<p>尽管上面的O(sqrt(n))的算法已经非常优秀了，但是面对更高数量级的“大数”却会显得力不从心。而这个时候，Miller_Rabin的优越性就显示出来了。</p>
+<p>Miller_Rabin的理论基础来源于费马小定理。值得一提的是费马小定理是数论四大定理之一。</p>
+<p>费马小定理：n是一个奇素数，a是任何整数(1≤ a≤n-1) ，则 a^(n-1)≡1(mod n)</p>
+<p>要测试n是否是一个素数，首先将n-1分解为(2^s) * d，在每次测试开始时，先随机选择一个介于[1, N - 1]的整数a，之后如果对于所有的r∈[0, s - 1]，若a^d mod N ≠ 1且a^((2^r) * d) mod N ≠ -1，那么n就是一个合数，否则n有3/4的几率是素数。</p>
+<p>这也是为什么说这个算法只是素性测试了，他不能完全保证结果正确，但是当测试次数大约为20的时候，基本可以确保正确率达到97%以上。</p>
+<p>它的代码可以这么写：</p>
+<p>const int S = 20;<br>LL mod_mul(LL a, LL b, LL n) {<br>    LL res = 0;<br>    while (b) {<br>        if (b &amp; 1) res = (res + a) % n;<br>        a = (a + a) % n;<br>        b &gt;&gt;= 1;<br>    }<br>    return res;<br>}<br>LL mod_exp(LL a, LL b, LL n) {<br>    LL res = 1;<br>    while (b) {<br>        if (b &amp; 1) res = mod_mul(res, a, n);<br>        a = mod_mul(a, a, n);<br>        b &gt;&gt;= 1;<br>    }<br>    return res;<br>}<br>bool miller_rabin(LL n) {<br>    if (n == 2 || n == 3 || n == 5 || n == 7 || n == 11) return true;<br>    if (n == 1 || !(n % 2) || !(n % 3) || !(n % 5) || !(n % 7) || !(n % 11)) return false;<br>    LL x, pre, u = n - 1, k = 0;<br>    while (!(u &amp; 1)) {<br>        ++k;<br>        u &gt;&gt;= 1;<br>    }<br>    srand((LL)time(NULL));<br>    for (int i = 0; i &lt; S; ++i) {                     //进行S次测试，S越大，结果越准确<br>        x = rand() % (n - 2) + 2;                   //在[2, n)中取随机数<br>        if (x % n == 0) continue;<br>        x = mod_exp(x, u, n);                       //计算x^u % n<br>        pre = x;<br>        for (int j = 0; j &lt; k; ++j) {<br>            x = mod_mul(x, x, n);<br>            if (x == 1 &amp;&amp; pre != 1 &amp;&amp; pre != n - 1)<br>                return false;<br>            pre = x;<br>        }<br>        if (x != 1) return false;<br>    }<br>    return true;<br>}</p>
+<p>四、筛选法</p>
+<p>上面介绍的一些素数判断的算法，在某些问题是基本可以适用的了。但是对于另外一类问题却十分尴尬。比如问你整数区间[1, n]内的素数个数是多少。这个时候如果一个个枚举，一个个判断，对于朴素方法来说，最优也是O(nsqrt(n))，即使是Miller_Rabin算法也无法在O(n)的时间内得到结果。于是就有了埃氏筛选法（埃拉托斯特尼筛法）。</p>
+<p>对于筛选整数n以内的素数，算法是这么描述的：先把素数2的倍数全部删除，剩下的数第一个为3，再把素数3的倍数全部删除，剩下的第一个数为5，再把素数5的倍数全部删除······直到把n以内最后一个素数的倍数删除完毕，得到n以内的所有素数。代码可以这么写：</p>
+<p>const int maxn = 1e7 + 5;<br>int pri[maxn];<br>void getPrime(int n) {<br>    for (int i = 0; i &lt;= n; ++i) pri[i] = i;<br>    pri[1] = 0;<br>    for (int i = 2; i &lt;= n; ++i) {<br>        if (!pri[i]) continue;<br>        pri[++pri[0]] = i;<br>        for (int j = 2; i * j &lt;= n &amp;&amp; j &lt; n; ++j) {<br>            pri[i * j] = 0;<br>        }<br>    }<br>}</p>
+<p>而事实上，观察可以发现，上面的这种写法有很多次重复计算，这样显然无法做到线性筛选，而另外一种写法却可以得到线性筛选，达到时间复杂度为O(n)，代码可以这么写：</p>
+<p>const int MAXN = 1e7 + 5;<br>void getPrime(){<br>    memset(prime, 0, sizeof(prime));<br>    for (int i = 2;i &lt;= MAXN;i++) {<br>        if (!prime[i])prime[++prime[0]] = i;<br>        for (int j = 1;j &lt;= prime[0] &amp;&amp; prime[j] &lt;= MAXN / i;j++) {<br>            prime[prime[j] * i] = 1;<br>            if (i%prime[j] == 0) break;<br>        }<br>    }<br>}</p>
+<p>来自kuangbin的模板。</p>
+<p>五、容斥原理</p>
+<p>从上面的代码可以发现，显然这种筛法只能应付达到1e7这种数量级的运算，即使是线性的筛选法，也无法满足，因为在ACM竞赛中，1e8的内存是极有可能获得Memery Limit Exceed的。</p>
+<p>于是可以考虑容斥原理。</p>
+<p>以AHUOJ 557为例，1e8的情况是筛选法完全无法满足的，但是还是考虑a * b = c的情况，1e8只需要考虑10000以内的素数p[10000]，然后每次先减去n / p[i]，再加上n / (p[i] * p[j])再减去n / (p[i] * p[j] * p[k])以此类推…于是就可以得到正确结果了。</p>
+<p>代码如下：</p>
+<p>#include <cmath></cmath></p>
+<p>#include <cstdio><br>using namespace std;</cstdio></p>
+<p>const int maxn = 10005;<br>int sqrn, n, ans = 0;<br>bool vis[maxn];<br>int pri[1500] = {0};<br>void init(){<br>    vis[1] = true;<br>    int k = 0;<br>    for(int i = 2; i &lt; maxn; i++){<br>        if(!vis[i]) pri[k++] = i;<br>        for(int j = 0; j &lt; k &amp;&amp; pri[j] * i &lt; maxn; j++){<br>            vis[pri[j] * i] = true;<br>            if(i % pri[j] == 0) break;<br>        }<br>    }<br>}<br>void dfs(int num, int res, int index){<br>    for(int i = index; pri[i] &lt;= sqrn; i++){<br>        if(1LL * res * pri[i] &gt; n){<br>            return;<br>        }<br>        dfs(num + 1, res * pri[i], i+1);<br>        if(num % 2 == 1){<br>            ans -= n / (res * pri[i]);<br>        }else{<br>            ans += n / (res * pri[i]);<br>        }<br>        if(num == 1) ans++;<br>    }<br>}<br>int main(){<br>    init();<br>    while(~scanf(“%d”,&amp;n) &amp;&amp; n){<br>        ans = n;<br>        sqrn = sqrt((double)n);<br>        dfs(1,1,0);<br>        printf(“%d\n”,ans-1);<br>    }<br>    return 0;<br>}</p>
+<p>六、Meissel-Lehmer算法<br>最后介绍的这个算法可以说是黑科技级别的，它能够在3s内求出1e11之内的素数个数。据说还有在300ms内求出1e11的个数的。可以参考wiki里面原理。然后给出来自Codeforces 665F题目里面的代码。</p>
+<p>#define MAXN 100    // pre-calc max n for phi(m, n)</p>
+<p>#define MAXM 10010 // pre-calc max m for phi(m, n)</p>
+<p>#define MAXP 40000 // max primes counter</p>
+<p>#define MAX 400010    // max prime</p>
+<p>#define setbit(ar, i) (((ar[(i) &gt;&gt; 6]) |= (1 &lt;&lt; (((i) &gt;&gt; 1) &amp; 31)))) </p>
+<p>#define chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 &lt;&lt; (((i) &gt;&gt; 1) &amp; 31))))</p>
+<p>#define isprime(x) (( (x) &amp;&amp; ((x)&amp;1) &amp;&amp; (!chkbit(ar, (x)))) || ((x) == 2))</p>
+<p>namespace pcf {<br>    long long dp[MAXN][MAXM];<br>    unsigned int ar[(MAX &gt;&gt; 6) + 5] = { 0 };<br>    int len = 0, primes[MAXP], counter[MAX];<br>    void Sieve() {<br>        setbit(ar, 0), setbit(ar, 1);<br>        for (int i = 3; (i * i) &lt; MAX; i++, i++) {<br>            if (!chkbit(ar, i)) {<br>                int k = i &lt;&lt; 1;<br>                for (int j = (i * i); j &lt; MAX; j += k) setbit(ar, j);<br>            }<br>        }<br>        for (int i = 1; i &lt; MAX; i++) {<br>            counter[i] = counter[i - 1];<br>            if (isprime(i)) primes[len++] = i, counter[i]++;<br>        }<br>    }<br>    void init() {<br>        Sieve();<br>        for (int n = 0; n &lt; MAXN; n++) {<br>            for (int m = 0; m &lt; MAXM; m++) {<br>                if (!n) dp[n][m] = m;<br>                else dp[n][m] = dp[n - 1][m] - dp[n - 1][m / primes[n - 1]];<br>            }<br>        }<br>    }<br>    long long phi(long long m, int n) {<br>        if (n == 0) return m;<br>        if (primes[n - 1] &gt;= m) return 1;<br>        if (m &lt; MAXM &amp;&amp; n &lt; MAXN) return dp[n][m];<br>        return phi(m, n - 1) - phi(m / primes[n - 1], n - 1);<br>    }<br>    long long Lehmer(long long m) {<br>        if (m &lt; MAX) return counter[m];<br>        long long w, res = 0;<br>        int i, a, s, c, x, y;<br>        s = sqrt(0.9 + m), y = c = cbrt(0.9 + m);<br>        a = counter[y], res = phi(m, a) + a - 1;<br>        for (i = a; primes[i] &lt;= s; i++) res = res - Lehmer(m / primes[i]) + Lehmer(primes[i]) - 1;<br>        return res;<br>    }<br>}<br></p><p></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>MUSHROOM</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://github.com/mogumogui/mogumogui.github.io/2020/03/13/筛选法/" title="筛选法">https://github.com/mogumogui/mogumogui.github.io/2020/03/13/筛选法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/mogumogui.github.io/tags/算法学习/" rel="tag"># 算法学习</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/mogumogui.github.io/2020/01/18/2020-1-18/" rel="next" title="2020年1月18日 （记）">
+                  <i class="fa fa-chevron-left"></i> 2020年1月18日 （记）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/mogumogui.github.io/2020/05/12/2020疫情过后开学准备工作/" rel="prev" title="疫情过后开学前准备 （记）">
+                  疫情过后开学前准备 （记） <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/mogumogui.github.io/images/IMG_0837.JPG"
+      alt="MUSHROOM">
+  <p class="site-author-name" itemprop="name">MUSHROOM</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/mogumogui.github.io/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MUSHROOM</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
+
+<span id="busuanzi_container_site_uv">
+  本站访问次数：<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+</span>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/mogumogui.github.io/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/mogumogui.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/mogumogui.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+<script src="/mogumogui.github.io/js/utils.js?v=7.4.0"></script><script src="/mogumogui.github.io/js/motion.js?v=7.4.0"></script>
+<script src="/mogumogui.github.io/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/mogumogui.github.io/js/next-boot.js?v=7.4.0"></script>
+
+    
+  
+
+  <script>
+  (function() {
+    window.addEventListener('DOMContentLoaded', () => {
+      let script = document.createElement('script');
+      script.src = '/mogumogui.github.io/lib/three/three.min.js';
+      document.body.appendChild(script);
+    });
+    let styles = ['', '/mogumogui.github.io/lib/three/canvas_lines.min.js', ''];
+    window.addEventListener('load', () => {
+      styles.forEach(item => {
+        if (item !== '') {
+          let script = document.createElement('script');
+          script.src = item;
+          document.body.appendChild(script);
+        }
+      });
+    });
+  })();
+  </script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

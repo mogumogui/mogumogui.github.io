@@ -259,6 +259,834 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/09/13/2020-09-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/09/13/2020-09-13/" class="post-title-link" itemprop="url">2020年09月13日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-09-13 15:16:58 / Modified: 21:30:56" itemprop="dateCreated datePublished" datetime="2020-09-13T15:16:58+08:00">2020-09-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">日记</h4>
+
+<p>
+
+</p><p>&ensp;&ensp;&ensp;&ensp;今天又是以练车开始的一天，今天的手有点生，坡上顶点起步熄火了两次有点难受！其他的问题海星！</p>
+<p>&ensp;&ensp;&ensp;&ensp;收到来自呱呱的蛋黄酥味道还不错！</p>
+<p></p>
+
+<h4 align="center">每日一题 ： 单词搜索</h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>给定一个二维网格和一个单词，找出该单词是否存在于网格中。<br>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
+<p></p>
+
+<h4>实例：</h4>
+
+<p>
+
+</p><p>board =</p>
+<p>[<br>  [‘A’,’B’,’C’,’E’],<br>  [‘S’,’F’,’C’,’S’],<br>  [‘A’,’D’,’E’,’E’]<br>]</p>
+<p>给定 word = “ABCCED”, 返回 true<br>给定 word = “SEE”, 返回 true<br>给定 word = “ABCB”, 返回 false</p>
+<p></p>
+
+<h4>提示：</h4>
+
+
+<p>
+
+<li>board 和 word 中只包含大写和小写英文字母。</li>
+<li>1 <= board.length <="200</li">
+<li>1 <= board[i].length <="200</li">
+<li>1 <= word.length <="10^3</li">
+
+</=></li></=></li></=></li></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>class Solution {
+public:
+// 设置移动坐标
+
+    vector&lt;pair&lt;int, int&gt;&gt; directions{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    bool Find_Word(vector&lt;vector&lt;char&gt;&gt; &amp;board, vector&lt;vector&lt;int&gt;&gt; &amp;visited, int row, int col, string word, int n )
+    {
+        // 判断是否查找到最后一个字母
+        if(board[row][col] != word[n])
+        {
+            return false;
+        }
+        else if(n == word.length() - 1) {
+            return true;   
+        }
+
+        // 置为1 表示已经访问
+        visited[row][col] = 1;
+
+        // 设置一个变量来记录结果
+        bool res = false;
+
+        for (const auto&amp; dir: directions)
+        {
+            int x = row + dir.first;
+            int y = col + dir.second;
+
+            if(x &gt;= 0 &amp;&amp; x &lt; board.size() &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; board[0].size() )
+            {
+                // 如果下一个格子没有别访问 则直接进入下一步
+                if(!visited[x][y])
+                {   
+                    bool flag = Find_Word(board,visited,x,y,word,n+1); // 直接dfs下一个
+                    if(flag)
+                    {
+                        res = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        visited[row][col] = 0; // 重新置为0 以便回溯
+
+        return res;
+
+    }
+
+    bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) {
+
+        int h = board.size(), w = board[0].size();
+
+        vector&lt;vector&lt;int&gt;&gt; visited(h, vector&lt;int&gt;(w));
+
+        for (int i = 0; i &lt; h; i++) {
+            for (int j = 0; j &lt; w; j++) {
+                bool flag = Find_Word(board, visited, i, j, word, 0);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+};</code></pre></p>
+
+<p>tag：深搜加回溯</p>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/05/12/2020疫情过后开学准备工作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/05/12/2020疫情过后开学准备工作/" class="post-title-link" itemprop="url">疫情过后开学前准备 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-05-12 20:37:49" itemprop="dateCreated datePublished" datetime="2020-05-12T20:37:49+08:00">2020-05-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-20 20:32:36" itemprop="dateModified" datetime="2020-05-20T20:32:36+08:00">2020-05-20</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>
+
+</p><h2>▶距离开学还有十天</h2>
+
+
+<p>（1）算法复习并且增加练习量  （2天）<br><img src="./images/SuanFa00.png" alt="算法学习"></p>
+<p>（2）操作系统复习               （2天）</p>
+<p>（3）单片机复习             （2天）</p>
+<p><img src="./images/MicrocontrollerPrinciple/00.png" alt="2020.5.15"><br><img src="./images/MicrocontrollerPrinciple/01.png" alt="2020.5.17"><br><img src="./images/MicrocontrollerPrinciple/02.png" alt="2020.5.20"></p>
+<p>（4）计算机网络复习         （2天）<br><img src="./images/Network/05.png" alt="2020.5.16"><br><img src="./images/Network/00.png" alt="2020.5.16"><br><img src="./images/Network/01.png" alt="2020.5.16"><br><img src="./images/Network/02.png" alt="2020.5.16"><br><img src="./images/Network/03.png" alt="2020.5.16"><br><img src="./images/Network/04.png" alt="2020.5.16"></p>
+<p>（5）安卓开发复习           （2天）</p>
+<p></p>>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/03/13/筛选法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/03/13/筛选法/" class="post-title-link" itemprop="url">筛选法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-03-13 23:27:07 / Modified: 17:04:31" itemprop="dateCreated datePublished" datetime="2020-03-13T23:27:07+08:00">2020-03-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>
+一、引言
+
+</p><p>在平时做题目或者进行运算的时候，素数的出现次数总是十分频繁。这里总结了一些常见的判定素数和计算某个范围内素数个数的一些算法。部分代码来源于 kuangbin 的模板，嗯毕竟都是跟着这个学的…</p>
+<p>二、朴素判断素数算法</p>
+<p>就判断素数而言，事实上是非常简单的了。根据定义，判断一个整数n是否是素数，只需要去判断在整数区间[2, n-1]之内，是否具有某个数m，使得n % m == 0。代码可以这么写：</p>
+<p>int isPrime(int n) {<br>    int i;<br>    for (i = 2; i &lt; n; ++i) {<br>        if (n % i == 0) return 0;<br>    }<br>    return 1;<br>}</p>
+<p>事实上，这个算法是O(n)的，感觉是很快了，但是依旧无法满足需求。所以有一个算法是O(sqrt(n))的算法。代码可以这么写：</p>
+<p>int isPrime(long long n) {<br>    long long i;<br>    for (i = 2; i * i &lt;= n; ++i) {<br>        if (n % i == 0) return 0;<br>    }<br>    return 1;<br>}</p>
+<p>原理很巧妙，也仅仅是把代码的i &lt; n变成了i * i &lt;= n而已，但是优化却是极其高的。可能你会注意到，在上一份代码里面，我定义的n为int类型，而后面一份代码，我却定义成了long long，这是因为在1s内，上一份代码能判断出来的数量级为1e8，而后面一份代码判断出来的数量级却几乎可以达到1e16。而原因仅仅是因为a * b = c的话一旦a是c的约数，那么b也是，如果a不是，那么b也不是。<br>这个方法也可以称作试除法。</p>
+<p>三、Miller_Rabin素性测试</p>
+<p>尽管上面的O(sqrt(n))的算法已经非常优秀了，但是面对更高数量级的“大数”却会显得力不从心。而这个时候，Miller_Rabin的优越性就显示出来了。</p>
+<p>Miller_Rabin的理论基础来源于费马小定理。值得一提的是费马小定理是数论四大定理之一。</p>
+<p>费马小定理：n是一个奇素数，a是任何整数(1≤ a≤n-1) ，则 a^(n-1)≡1(mod n)</p>
+<p>要测试n是否是一个素数，首先将n-1分解为(2^s) * d，在每次测试开始时，先随机选择一个介于[1, N - 1]的整数a，之后如果对于所有的r∈[0, s - 1]，若a^d mod N ≠ 1且a^((2^r) * d) mod N ≠ -1，那么n就是一个合数，否则n有3/4的几率是素数。</p>
+<p>这也是为什么说这个算法只是素性测试了，他不能完全保证结果正确，但是当测试次数大约为20的时候，基本可以确保正确率达到97%以上。</p>
+<p>它的代码可以这么写：</p>
+<p>const int S = 20;<br>LL mod_mul(LL a, LL b, LL n) {<br>    LL res = 0;<br>    while (b) {<br>        if (b &amp; 1) res = (res + a) % n;<br>        a = (a + a) % n;<br>        b &gt;&gt;= 1;<br>    }<br>    return res;<br>}<br>LL mod_exp(LL a, LL b, LL n) {<br>    LL res = 1;<br>    while (b) {<br>        if (b &amp; 1) res = mod_mul(res, a, n);<br>        a = mod_mul(a, a, n);<br>        b &gt;&gt;= 1;<br>    }<br>    return res;<br>}<br>bool miller_rabin(LL n) {<br>    if (n == 2 || n == 3 || n == 5 || n == 7 || n == 11) return true;<br>    if (n == 1 || !(n % 2) || !(n % 3) || !(n % 5) || !(n % 7) || !(n % 11)) return false;<br>    LL x, pre, u = n - 1, k = 0;<br>    while (!(u &amp; 1)) {<br>        ++k;<br>        u &gt;&gt;= 1;<br>    }<br>    srand((LL)time(NULL));<br>    for (int i = 0; i &lt; S; ++i) {                     //进行S次测试，S越大，结果越准确<br>        x = rand() % (n - 2) + 2;                   //在[2, n)中取随机数<br>        if (x % n == 0) continue;<br>        x = mod_exp(x, u, n);                       //计算x^u % n<br>        pre = x;<br>        for (int j = 0; j &lt; k; ++j) {<br>            x = mod_mul(x, x, n);<br>            if (x == 1 &amp;&amp; pre != 1 &amp;&amp; pre != n - 1)<br>                return false;<br>            pre = x;<br>        }<br>        if (x != 1) return false;<br>    }<br>    return true;<br>}</p>
+<p>四、筛选法</p>
+<p>上面介绍的一些素数判断的算法，在某些问题是基本可以适用的了。但是对于另外一类问题却十分尴尬。比如问你整数区间[1, n]内的素数个数是多少。这个时候如果一个个枚举，一个个判断，对于朴素方法来说，最优也是O(nsqrt(n))，即使是Miller_Rabin算法也无法在O(n)的时间内得到结果。于是就有了埃氏筛选法（埃拉托斯特尼筛法）。</p>
+<p>对于筛选整数n以内的素数，算法是这么描述的：先把素数2的倍数全部删除，剩下的数第一个为3，再把素数3的倍数全部删除，剩下的第一个数为5，再把素数5的倍数全部删除······直到把n以内最后一个素数的倍数删除完毕，得到n以内的所有素数。代码可以这么写：</p>
+<p>const int maxn = 1e7 + 5;<br>int pri[maxn];<br>void getPrime(int n) {<br>    for (int i = 0; i &lt;= n; ++i) pri[i] = i;<br>    pri[1] = 0;<br>    for (int i = 2; i &lt;= n; ++i) {<br>        if (!pri[i]) continue;<br>        pri[++pri[0]] = i;<br>        for (int j = 2; i * j &lt;= n &amp;&amp; j &lt; n; ++j) {<br>            pri[i * j] = 0;<br>        }<br>    }<br>}</p>
+<p>而事实上，观察可以发现，上面的这种写法有很多次重复计算，这样显然无法做到线性筛选，而另外一种写法却可以得到线性筛选，达到时间复杂度为O(n)，代码可以这么写：</p>
+<p>const int MAXN = 1e7 + 5;<br>void getPrime(){<br>    memset(prime, 0, sizeof(prime));<br>    for (int i = 2;i &lt;= MAXN;i++) {<br>        if (!prime[i])prime[++prime[0]] = i;<br>        for (int j = 1;j &lt;= prime[0] &amp;&amp; prime[j] &lt;= MAXN / i;j++) {<br>            prime[prime[j] * i] = 1;<br>            if (i%prime[j] == 0) break;<br>        }<br>    }<br>}</p>
+<p>来自kuangbin的模板。</p>
+<p>五、容斥原理</p>
+<p>从上面的代码可以发现，显然这种筛法只能应付达到1e7这种数量级的运算，即使是线性的筛选法，也无法满足，因为在ACM竞赛中，1e8的内存是极有可能获得Memery Limit Exceed的。</p>
+<p>于是可以考虑容斥原理。</p>
+<p>以AHUOJ 557为例，1e8的情况是筛选法完全无法满足的，但是还是考虑a * b = c的情况，1e8只需要考虑10000以内的素数p[10000]，然后每次先减去n / p[i]，再加上n / (p[i] * p[j])再减去n / (p[i] * p[j] * p[k])以此类推…于是就可以得到正确结果了。</p>
+<p>代码如下：</p>
+<p>#include <cmath></cmath></p>
+<p>#include <cstdio><br>using namespace std;</cstdio></p>
+<p>const int maxn = 10005;<br>int sqrn, n, ans = 0;<br>bool vis[maxn];<br>int pri[1500] = {0};<br>void init(){<br>    vis[1] = true;<br>    int k = 0;<br>    for(int i = 2; i &lt; maxn; i++){<br>        if(!vis[i]) pri[k++] = i;<br>        for(int j = 0; j &lt; k &amp;&amp; pri[j] * i &lt; maxn; j++){<br>            vis[pri[j] * i] = true;<br>            if(i % pri[j] == 0) break;<br>        }<br>    }<br>}<br>void dfs(int num, int res, int index){<br>    for(int i = index; pri[i] &lt;= sqrn; i++){<br>        if(1LL * res * pri[i] &gt; n){<br>            return;<br>        }<br>        dfs(num + 1, res * pri[i], i+1);<br>        if(num % 2 == 1){<br>            ans -= n / (res * pri[i]);<br>        }else{<br>            ans += n / (res * pri[i]);<br>        }<br>        if(num == 1) ans++;<br>    }<br>}<br>int main(){<br>    init();<br>    while(~scanf(“%d”,&amp;n) &amp;&amp; n){<br>        ans = n;<br>        sqrn = sqrt((double)n);<br>        dfs(1,1,0);<br>        printf(“%d\n”,ans-1);<br>    }<br>    return 0;<br>}</p>
+<p>六、Meissel-Lehmer算法<br>最后介绍的这个算法可以说是黑科技级别的，它能够在3s内求出1e11之内的素数个数。据说还有在300ms内求出1e11的个数的。可以参考wiki里面原理。然后给出来自Codeforces 665F题目里面的代码。</p>
+<p>#define MAXN 100    // pre-calc max n for phi(m, n)</p>
+<p>#define MAXM 10010 // pre-calc max m for phi(m, n)</p>
+<p>#define MAXP 40000 // max primes counter</p>
+<p>#define MAX 400010    // max prime</p>
+<p>#define setbit(ar, i) (((ar[(i) &gt;&gt; 6]) |= (1 &lt;&lt; (((i) &gt;&gt; 1) &amp; 31)))) </p>
+<p>#define chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 &lt;&lt; (((i) &gt;&gt; 1) &amp; 31))))</p>
+<p>#define isprime(x) (( (x) &amp;&amp; ((x)&amp;1) &amp;&amp; (!chkbit(ar, (x)))) || ((x) == 2))</p>
+<p>namespace pcf {<br>    long long dp[MAXN][MAXM];<br>    unsigned int ar[(MAX &gt;&gt; 6) + 5] = { 0 };<br>    int len = 0, primes[MAXP], counter[MAX];<br>    void Sieve() {<br>        setbit(ar, 0), setbit(ar, 1);<br>        for (int i = 3; (i * i) &lt; MAX; i++, i++) {<br>            if (!chkbit(ar, i)) {<br>                int k = i &lt;&lt; 1;<br>                for (int j = (i * i); j &lt; MAX; j += k) setbit(ar, j);<br>            }<br>        }<br>        for (int i = 1; i &lt; MAX; i++) {<br>            counter[i] = counter[i - 1];<br>            if (isprime(i)) primes[len++] = i, counter[i]++;<br>        }<br>    }<br>    void init() {<br>        Sieve();<br>        for (int n = 0; n &lt; MAXN; n++) {<br>            for (int m = 0; m &lt; MAXM; m++) {<br>                if (!n) dp[n][m] = m;<br>                else dp[n][m] = dp[n - 1][m] - dp[n - 1][m / primes[n - 1]];<br>            }<br>        }<br>    }<br>    long long phi(long long m, int n) {<br>        if (n == 0) return m;<br>        if (primes[n - 1] &gt;= m) return 1;<br>        if (m &lt; MAXM &amp;&amp; n &lt; MAXN) return dp[n][m];<br>        return phi(m, n - 1) - phi(m / primes[n - 1], n - 1);<br>    }<br>    long long Lehmer(long long m) {<br>        if (m &lt; MAX) return counter[m];<br>        long long w, res = 0;<br>        int i, a, s, c, x, y;<br>        s = sqrt(0.9 + m), y = c = cbrt(0.9 + m);<br>        a = counter[y], res = phi(m, a) + a - 1;<br>        for (i = a; primes[i] &lt;= s; i++) res = res - Lehmer(m / primes[i]) + Lehmer(primes[i]) - 1;<br>        return res;<br>    }<br>}<br></p><p></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/01/18/2020-1-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/01/18/2020-1-18/" class="post-title-link" itemprop="url">2020年1月18日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-18 09:38:49 / Modified: 20:12:01" itemprop="dateCreated datePublished" datetime="2020-01-18T09:38:49+08:00">2020-01-18</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>若是没有发现捷径太费劲，那就试着去下苦心去尝试吧</center>
+
+<p><img src="./images/luotuo01.png" alt><br><img src="./images/luotuo02.png" alt><br><img src="./images/luotuo03.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/概率论复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/28/概率论复习/" class="post-title-link" itemprop="url">概率论复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:37:36" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>
+
+<p><img src="./images/gailvlun00.png" alt></p>
+<p align="center">2019-11-28  利用伽马函数求解函数期望及方差</p>
+
+<p><img src="./images/Gailvlun03.jpg" alt></p>
+<p><img src="./images/Gailvlun01.png" alt="Gamma Function"><br><img src="./images/Gailvlun02.png" alt="Gamma Function"></p>
+</center>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:43:59" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>prims算法</center>
+
+<p>#include<iostream><br>using namespace std;</iostream></p>
+<p>const int MaxSize=20;<br>const int INF=0x7fffffff;<br>const int MIN=0xc0c0c0c0;<br>template<class t><br>class MGraph{<br>        T vertex[MaxSize];<br>        int visited[MaxSize];<br>        int  edge[MaxSize][MaxSize]=;<br>        int verNum,edgeNum;</class></p>
+<pre><code>public:
+    MGraph(); // 构造函数
+    void Prim(int v); // Prim算法 
+    int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 </code></pre><p>};</p>
+<p>template<class t><br>MGraph<t>::MGraph(){ //构造函数 </t></class></p>
+<pre><code>cout&lt;&lt;&quot;顶点的个数:&quot;;
+cin&gt;&gt;verNum;</code></pre><p>//        cout&lt;&lt;”输入顶点的值:”;<br>//        for(int i=0;i&lt;verNum;i++){<br>//            cin&gt;&gt;vertex[i];<br>//        }<br>        for(int i=0;i&lt;verNum;i++){<br>            for(int j=0;j&lt;verNum;j++)<br>               edge[i][j]=INF;<br>        }<br>        cout&lt;&lt;”边的条数:”;<br>        cin&gt;&gt;edgeNum;</p>
+<pre><code>for(int i=0;i&lt;edgeNum;i++){
+    int v1,v2;
+    cout&lt;&lt;&quot;输入边上的编号:&quot;;
+    cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
+    cout&lt;&lt;&quot;输入边上的权值:&quot;;
+    cin &gt;&gt; edge[v1][v2];
+    edge[v1][v2]=edge[v2][v1];
+}</code></pre><p>}<br>template<class t><br>void MGraph<t>::Prim(int v){</t></class></p>
+<pre><code>int adjvex[MaxSize],lowcost[MaxSize] = {INF};
+//初始化辅助数组
+for(int i = 0; i &lt; verNum; i++){
+    lowcost[i] = edge[v][i];
+    adjvex[i] = v;
+} 
+lowcost[v] = 0; //将顶点v加入集合U
+
+for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
+    int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
+    cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
+    lowcost[MinJ] = 0;  // 将MinJ加入集合U
+
+    for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
+        if(edge[i][MinJ] &lt; lowcost[i]){
+            lowcost[i] = edge[i][MinJ];
+            adjvex[i] = MinJ; 
+        }
+    } 
+}  </code></pre><p>}<br>template<class t><br>int MGraph<t>::MinEdge(int* LowCost, int verNum) {<br>    int Min = INF, Min_i = 0;<br>    for (int i = 0; i &lt; verNum; i++) {<br>        if (LowCost[i] &lt; Min) {<br>            Min = LowCost[i];<br>            Min_i = i;<br>        }<br>    }<br>    return Min_i;<br>}<br>int main(){<br>    MGraph<int> g;<br>    g.Prim(0);<br>}</int></t></class></p>
+<p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
+
+<p>解决方案：</p>
+
+<p><img src="./images/CPlusPlusError00.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/18/数据库复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/18/数据库复习/" class="post-title-link" itemprop="url">数据库复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-18 23:27:07 / Modified: 10:19:35" itemprop="dateCreated datePublished" datetime="2019-11-18T23:27:07+08:00">2019-11-18</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>
+
+
+</center>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/18/2019-11-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/18/2019-11-18/" class="post-title-link" itemprop="url">2019年11月18日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-18 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-18T09:38:49+08:00">2019-11-18</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-28 22:33:21" itemprop="dateModified" datetime="2019-11-28T22:33:21+08:00">2019-11-28</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>
+<p>
+</p>
+<br>
+
+<li>复习数据库原理第四章（函数依赖及无损分解） 【√】</li>
+<li>英语六级单词 ——>"扇贝单词" 【√】</li>
+
+<li>复习概率论第一章（全概率公式和叶贝斯公式） 【√】</li>
+<li>小元老师高数概率论线代</li>
+
+
+</center>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/17/2019-11-17/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,755 +1254,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/15/2019-11-15/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/15/2019-11-15/" class="post-title-link" itemprop="url">2019年11月15日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-15 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-15T09:38:49+08:00">2019-11-15</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 21:15:13" itemprop="dateModified" datetime="2019-11-17T21:15:13+08:00">2019-11-17</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>今天居然是阴天
-
-<p>满课的一天，一下课就去东浦市场那边参加辅导班的面试，还好过了！公交要坐二十站！
-周六就去辅导小孩子，回学校已经七点多了，买了个小柚子，还有橘子，回去跟他们一起分了一下，好便宜！
-</p>
-<br>
-
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-
-<li>巧口语吧下午5：40面试 【√】</li>
-
-</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/14/2019-11-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/14/2019-11-14/" class="post-title-link" itemprop="url">2019年11月14日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-14 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-14T09:38:49+08:00">2019-11-14</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 22:20:56" itemprop="dateModified" datetime="2019-11-17T22:20:56+08:00">2019-11-17</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>
-<p>早起去泰极考科目一</p>
-<br>
-
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-<li>科目一模拟90分 ——>"驾考培训" 【√】</li>
-<li>今日三十分钟运动量（篮球）——>"篮球场" 【√】</li>
-
-<li>科目一 【√】</li>
-</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/13/2019-11-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/13/2019-11-13/" class="post-title-link" itemprop="url">2019年11月13日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-13 09:38:49 / Modified: 23:07:10" itemprop="dateCreated datePublished" datetime="2019-11-13T09:38:49+08:00">2019-11-13</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="./images/IMG_7352.JPG" alt></p>
-<center>今天居然是阴天
-
-<p>时光荏苒，光阴如梭。转眼间，团委七大校级组织都已完成换届。大活五楼，见证了无数学生干部的成长与蜕变，泪水和欢笑。宜春学院官方微信公众号“沁湖青年”拟推送“我和大活五楼的故事”的图文，现向大家征集大家在大活五楼发生的印象的小故事，也可以是对自己学生干部生活的总结和感慨，对换届的想法等，图片、文字、视频的形式都可以皆可。每个校级组织需有3份投稿。请于明天下午五点前发送至2639369147@qq.com，并备注好相关信息（校级组织名称，姓名） 。我们期待聆听你的故事。</p>
-<br>
-
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-<li>科目一模拟90分 ——>"驾考培训" 【√】</li>
-<li>参加创新创业（飞科公司）宣讲 ——>"主教楼2楼" 【√】</li>
-<li>计算机组成原理 ——>"Bilibili白中英" 【×】</li>
-<li>今日三十分钟运动量（篮球）——>"篮球场" 【×】</li>
-
-<li>明天科目一一定要过 【 】</li>
-<li>写一份学生干部生活的总结和感慨 【 】</li>
-<li>去准备敬老院的一些东西 【 】</li>
-
-</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/12/2019-11-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/12/2019-11-12/" class="post-title-link" itemprop="url">2019年11月12日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-12 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-12T09:38:49+08:00">2019-11-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-13 22:57:50" itemprop="dateModified" datetime="2019-11-13T22:57:50+08:00">2019-11-13</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="./images/IMG_7342.JPG" alt></p>
-<center>进行早期光合作用
-
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-<li>科目一模拟90分 ——>"驾考培训" 【√】</li>
-<li>计算机组成原理 ——>"Bilibili白中英" 【√】</li>
-<li>今日三十分钟运动量（篮球）——>"篮球场" 【√】</li>
-
-</center>
-
-<p></p>
-<p></p>
-
-<center>日常猫咪(●'◡'●)</center>
-
-<p><img src="./images/maomi.png" alt></p>
-<center>软件服务外包与创新实践与教育中心</center>
-
-<center>俱乐部制度 开发区物联网公司 智能锁公司</center>
-<center>开发思维 学院投资 自主管理 自主训练 自主学习</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/10/16/2019-10-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/10/16/2019-10-16/" class="post-title-link" itemprop="url">2019年10月16日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-16 09:38:49" itemprop="dateCreated datePublished" datetime="2019-10-16T09:38:49+08:00">2019-10-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-12 22:49:15" itemprop="dateModified" datetime="2019-11-12T22:49:15+08:00">2019-11-12</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>♥♥是落拓呀♥♥ </center>
-
-<center>UID:43276908</center>
-
-<p><img src="./images/IMG_6976.PNG" alt></p>
-<center>已识乾坤大，犹怜草木青。</center>
-
-<p>
-
-</p><p>&ensp;&ensp;&ensp;&ensp;把自己应该做的事情变成想做的事情！为了避免或者减少后悔产生的痛苦而去承担辛苦！面临辛苦的时候去逃避，最后的结果可能会让自己更痛苦！</p>
-<p></p>
-
-<center>卸载MicrosoftSQLServer2008R2安装程序</center>
-<p>
-无法卸载，因为安装了
-
-<pre><code>SQL Server 2008 R2 Database Engine Shared
-SQL Server 2008 R2 Common Files</code></pre></p><p>但是在已安装软件中找不到这两个软件，那么解决办法是</p>
-<p>首先点击运行，输入cmd，进入命令行模式 然后输入WMIC</p>
-<p>然后执行product list 找到</p>
-<pre><code>SQL Server 2008 R2 Database Engine Shared
-SQL Server 2008 R2 Common Files</code></pre><p>二者后面分别对应：</p>
-<p>{36F70DEE-1EBF-4707-AFA2-E035EEAEBAA1}</p>
-<p>{A2122A9C-A699-4365-ADF8-68FEAC125D61}</p>
-<p>然后进入windos/system32目录下</p>
-<p>执行：</p>
-<pre><code>c:\Windows\System32&gt;msiexec.exe /x {36F70DEE-1EBF-4707-AFA2-E035EEAEBAA1}
-c:\Windows\System32&gt;msiexec.exe /x {A2122A9C-A699-4365-ADF8-68FEAC125D61}</code></pre><p>然后再卸载</p>
-<p></p>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/10/13/2019-10-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/10/13/2019-10-13/" class="post-title-link" itemprop="url">2019年10月13日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-13 22:38:49 / Modified: 23:04:51" itemprop="dateCreated datePublished" datetime="2019-10-13T22:38:49+08:00">2019-10-13</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>《我的英雄学院IV》</center>
-
-<p><img src="./images/IMG_6957.PNG" alt></p>
-<center>轰！</center>
-
-<p><img src="./images/IMG_6950.PNG" alt></p>
-<center>小久！</center>
-
-<p><img src="./images/IMG_6959.PNG" alt></p>
-<center>咔酱！</center>
-
-<p><img src="./images/IMG_6958.PNG" alt></p>
-<center>明内！</center>
-
-<p><img src="./images/IMG_6960.PNG" alt></p>
-<center>明内！</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/10/07/2019-10-07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/10/07/2019-10-07/" class="post-title-link" itemprop="url">2019年10月07日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 11:05:29" itemprop="dateCreated datePublished" datetime="2019-10-07T11:05:29+08:00">2019-10-07</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-16 09:21:23" itemprop="dateModified" datetime="2019-10-16T09:21:23+08:00">2019-10-16</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>
-<center>《 what for ? 》 -> 独听好评！</center>
-
-</p><p>&ensp;&ensp;&ensp;&ensp;第一次从汽车站走到火车站（18分钟），戴着耳机听着歌一路边看边走，虽穿梭在人潮中，却感受不到外界的嘈杂，仿佛一个人安静的走在乡间小路上，虽独处却一点也不孤独！</p>
-<center>
-LinKin Park 《In The End》  
-
-<p>it starts with one thing, i don’t know why!<br>To explain in due time!</p>
-</center>
-
-<p>&ensp;&ensp;&ensp;&ensp;之前没有在这样的环境下听过这首歌，但今天伴着微风，袖子也跟着欢快起来！把我带到了一个熟悉的陌生地方，那里有成堆成团的波波草，有着同样的微风，有着我所期待的软石路，在那我可以沿着路慢慢悠悠地散着步，看着道路两旁向我寒暄的绿色精灵，还有空中飘拂的蒲公英，多么美妙，多么神奇，多么让人流连忘返的佳境。</p>
-<p>&ensp;&ensp;&ensp;&ensp;突然之间，歌声转瞬即逝，背后的阴影把我吸回现实，有那么一瞬间令我手足无措，当我清醒过来，眼眶莫名润湿，耳旁却依旧是Chester·Bennington和Mike·Shinoda的声音，我下意识地按着太阳穴回想，脑海里的画面却是那么的零零散散，我明白那可能是我今后为之奋斗的东西！我大声喊加油！自己！这一刻声带没有颤抖！</p>
-<hr>
-<p>&ensp;&ensp;&ensp;&ensp;检完票进站后，找了个空位置坐下来，刚下来就被椅子爆按一顿，这时耳机已不再是老熟人的歌，换成了没有词的《whatfor？》，不知是今天的我感性还是，还是今天的歌尤其动人！每一首让我都能有感触！！！</p>
-<hr>
-<p>&ensp;&ensp;&ensp;&ensp;今天扫了一个聋哑人的码给他转了二十块，我知道这样的影响会更不好，但是我的手但是忍不住拿出手机去扫那个码，之后跟他发了一些鼓励他的话，不知道他能不能看到，不论真假，还是希望社会上不论是残疾人或是假装残疾人乞讨的人，都能好好活下去！</p>
-<p></p>
-
-<p><img src="./images/IMG_6850.JPG" alt></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/10/06/本机WIFI密码查询/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/10/06/本机WIFI密码查询/" class="post-title-link" itemprop="url">本机WIFI密码查询</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-06 23:27:07 / Modified: 23:55:28" itemprop="dateCreated datePublished" datetime="2019-10-06T23:27:07+08:00">2019-10-06</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-</blockquote>
-<center>
-获取本地连接过的WIFI密码
-
-<p>创建一个.bat文件输入以下：</p>
-<p>@echo off</p>
-<p>set /p i=””</p>
-<p>netsh wlan show profiles name = %i% key= clear</p>
-<p>pause &gt; nul<br><img src="./images/WIFI.png" alt><br><img src="./images/WIFI02.png" alt></p>
-</center>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/mogumogui.github.io/page/2/">2</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/mogumogui.github.io/page/2/">2</a><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1222,7 +1306,7 @@ LinKin Park 《In The End》
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1231,7 +1315,7 @@ LinKin Park 《In The End》
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
@@ -1252,7 +1336,7 @@ LinKin Park 《In The End》
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
