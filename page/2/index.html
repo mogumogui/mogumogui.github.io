@@ -259,6 +259,189 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/09/13/2020-09-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/09/13/2020-09-13/" class="post-title-link" itemprop="url">2020年09月13日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-09-13 15:16:58 / Modified: 21:30:56" itemprop="dateCreated datePublished" datetime="2020-09-13T15:16:58+08:00">2020-09-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">日记</h4>
+
+<p>
+
+</p><p>&ensp;&ensp;&ensp;&ensp;今天又是以练车开始的一天，今天的手有点生，坡上顶点起步熄火了两次有点难受！其他的问题海星！</p>
+<p>&ensp;&ensp;&ensp;&ensp;收到来自呱呱的蛋黄酥味道还不错！</p>
+<p></p>
+
+<h4 align="center">每日一题 ： 单词搜索</h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>给定一个二维网格和一个单词，找出该单词是否存在于网格中。<br>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
+<p></p>
+
+<h4>实例：</h4>
+
+<p>
+
+</p><p>board =</p>
+<p>[<br>  [‘A’,’B’,’C’,’E’],<br>  [‘S’,’F’,’C’,’S’],<br>  [‘A’,’D’,’E’,’E’]<br>]</p>
+<p>给定 word = “ABCCED”, 返回 true<br>给定 word = “SEE”, 返回 true<br>给定 word = “ABCB”, 返回 false</p>
+<p></p>
+
+<h4>提示：</h4>
+
+
+<p>
+
+<li>board 和 word 中只包含大写和小写英文字母。</li>
+<li>1 <= board.length <="200</li">
+<li>1 <= board[i].length <="200</li">
+<li>1 <= word.length <="10^3</li">
+
+</=></li></=></li></=></li></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>class Solution {
+public:
+// 设置移动坐标
+
+    vector&lt;pair&lt;int, int&gt;&gt; directions{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    bool Find_Word(vector&lt;vector&lt;char&gt;&gt; &amp;board, vector&lt;vector&lt;int&gt;&gt; &amp;visited, int row, int col, string word, int n )
+    {
+        // 判断是否查找到最后一个字母
+        if(board[row][col] != word[n])
+        {
+            return false;
+        }
+        else if(n == word.length() - 1) {
+            return true;   
+        }
+
+        // 置为1 表示已经访问
+        visited[row][col] = 1;
+
+        // 设置一个变量来记录结果
+        bool res = false;
+
+        for (const auto&amp; dir: directions)
+        {
+            int x = row + dir.first;
+            int y = col + dir.second;
+
+            if(x &gt;= 0 &amp;&amp; x &lt; board.size() &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; board[0].size() )
+            {
+                // 如果下一个格子没有别访问 则直接进入下一步
+                if(!visited[x][y])
+                {   
+                    bool flag = Find_Word(board,visited,x,y,word,n+1); // 直接dfs下一个
+                    if(flag)
+                    {
+                        res = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        visited[row][col] = 0; // 重新置为0 以便回溯
+
+        return res;
+
+    }
+
+    bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) {
+
+        int h = board.size(), w = board[0].size();
+
+        vector&lt;vector&lt;int&gt;&gt; visited(h, vector&lt;int&gt;(w));
+
+        for (int i = 0; i &lt; h; i++) {
+            for (int j = 0; j &lt; w; j++) {
+                bool flag = Find_Word(board, visited, i, j, word, 0);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+};</code></pre></p>
+
+<p>tag：深搜加回溯</p>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/05/12/2020疫情过后开学准备工作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -699,6 +882,175 @@ namespace pcf {
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-28 23:27:07" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:12:35" itemprop="dateModified" datetime="2020-10-09T20:12:35+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>prims算法</center>
+
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+const int MaxSize=20;
+const int INF=0x7fffffff;
+const int MIN=0xc0c0c0c0;
+template&lt;class T&gt;
+class MGraph{         
+        T vertex[MaxSize];
+        int visited[MaxSize];
+        int  edge[MaxSize][MaxSize]={{INF}};
+        int verNum,edgeNum;
+
+    public:
+        MGraph(); // 构造函数
+        void Prim(int v); // Prim算法 
+        int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 
+};
+
+template&lt;class T&gt;
+MGraph&lt;T&gt;::MGraph(){ //构造函数 
+
+        cout&lt;&lt;&quot;顶点的个数:&quot;;
+        cin&gt;&gt;verNum;
+//        cout&lt;&lt;&quot;输入顶点的值:&quot;;
+//        for(int i=0;i&lt;verNum;i++){        
+//            cin&gt;&gt;vertex[i];
+//        }
+        for(int i=0;i&lt;verNum;i++){        
+            for(int j=0;j&lt;verNum;j++)
+               edge[i][j]=INF;
+        }
+        cout&lt;&lt;&quot;边的条数:&quot;;
+        cin&gt;&gt;edgeNum;
+
+        for(int i=0;i&lt;edgeNum;i++){
+            int v1,v2;
+            cout&lt;&lt;&quot;输入边上的编号:&quot;;
+            cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
+            cout&lt;&lt;&quot;输入边上的权值:&quot;;
+            cin &gt;&gt; edge[v1][v2];
+            edge[v1][v2]=edge[v2][v1];
+        }
+}
+template&lt;class T&gt;
+void MGraph&lt;T&gt;::Prim(int v){
+
+    int adjvex[MaxSize],lowcost[MaxSize] = {INF};
+    //初始化辅助数组
+    for(int i = 0; i &lt; verNum; i++){
+        lowcost[i] = edge[v][i];
+        adjvex[i] = v;
+    } 
+    lowcost[v] = 0; //将顶点v加入集合U
+
+    for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
+        int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
+        cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
+        lowcost[MinJ] = 0;  // 将MinJ加入集合U
+
+        for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
+            if(edge[i][MinJ] &lt; lowcost[i]){
+                lowcost[i] = edge[i][MinJ];
+                adjvex[i] = MinJ; 
+            }
+        } 
+    }  
+} 
+template&lt;class T&gt;
+int MGraph&lt;T&gt;::MinEdge(int* LowCost, int verNum) {
+    int Min = INF, Min_i = 0;
+    for (int i = 0; i &lt; verNum; i++) {
+        if (LowCost[i] &lt; Min) {
+            Min = LowCost[i];
+            Min_i = i;
+        }
+    }
+    return Min_i;
+}
+int main(){
+    MGraph&lt;int&gt; g;
+    g.Prim(0);
+}</code></pre><p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
+
+<p>解决方案：</p>
+
+<p><img src="./images/CPlusPlusError00.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/概率论复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -755,122 +1107,6 @@ namespace pcf {
 <p><img src="./images/Gailvlun03.jpg" alt></p>
 <p><img src="./images/Gailvlun01.png" alt="Gamma Function"><br><img src="./images/Gailvlun02.png" alt="Gamma Function"></p>
 </center>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:43:59" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>prims算法</center>
-
-<p>#include<iostream><br>using namespace std;</iostream></p>
-<p>const int MaxSize=20;<br>const int INF=0x7fffffff;<br>const int MIN=0xc0c0c0c0;<br>template<class t><br>class MGraph{<br>        T vertex[MaxSize];<br>        int visited[MaxSize];<br>        int  edge[MaxSize][MaxSize]=;<br>        int verNum,edgeNum;</class></p>
-<pre><code>public:
-    MGraph(); // 构造函数
-    void Prim(int v); // Prim算法 
-    int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 </code></pre><p>};</p>
-<p>template<class t><br>MGraph<t>::MGraph(){ //构造函数 </t></class></p>
-<pre><code>cout&lt;&lt;&quot;顶点的个数:&quot;;
-cin&gt;&gt;verNum;</code></pre><p>//        cout&lt;&lt;”输入顶点的值:”;<br>//        for(int i=0;i&lt;verNum;i++){<br>//            cin&gt;&gt;vertex[i];<br>//        }<br>        for(int i=0;i&lt;verNum;i++){<br>            for(int j=0;j&lt;verNum;j++)<br>               edge[i][j]=INF;<br>        }<br>        cout&lt;&lt;”边的条数:”;<br>        cin&gt;&gt;edgeNum;</p>
-<pre><code>for(int i=0;i&lt;edgeNum;i++){
-    int v1,v2;
-    cout&lt;&lt;&quot;输入边上的编号:&quot;;
-    cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
-    cout&lt;&lt;&quot;输入边上的权值:&quot;;
-    cin &gt;&gt; edge[v1][v2];
-    edge[v1][v2]=edge[v2][v1];
-}</code></pre><p>}<br>template<class t><br>void MGraph<t>::Prim(int v){</t></class></p>
-<pre><code>int adjvex[MaxSize],lowcost[MaxSize] = {INF};
-//初始化辅助数组
-for(int i = 0; i &lt; verNum; i++){
-    lowcost[i] = edge[v][i];
-    adjvex[i] = v;
-} 
-lowcost[v] = 0; //将顶点v加入集合U
-
-for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
-    int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
-    cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
-    lowcost[MinJ] = 0;  // 将MinJ加入集合U
-
-    for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
-        if(edge[i][MinJ] &lt; lowcost[i]){
-            lowcost[i] = edge[i][MinJ];
-            adjvex[i] = MinJ; 
-        }
-    } 
-}  </code></pre><p>}<br>template<class t><br>int MGraph<t>::MinEdge(int* LowCost, int verNum) {<br>    int Min = INF, Min_i = 0;<br>    for (int i = 0; i &lt; verNum; i++) {<br>        if (LowCost[i] &lt; Min) {<br>            Min = LowCost[i];<br>            Min_i = i;<br>        }<br>    }<br>    return Min_i;<br>}<br>int main(){<br>    MGraph<int> g;<br>    g.Prim(0);<br>}</int></t></class></p>
-<p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
-
-<p>解决方案：</p>
-
-<p><img src="./images/CPlusPlusError00.png" alt></p>
 
         
       
@@ -1230,97 +1466,6 @@ for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/15/2019-11-15/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/15/2019-11-15/" class="post-title-link" itemprop="url">2019年11月15日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-15 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-15T09:38:49+08:00">2019-11-15</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 21:15:13" itemprop="dateModified" datetime="2019-11-17T21:15:13+08:00">2019-11-17</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>今天居然是阴天
-
-<p>满课的一天，一下课就去东浦市场那边参加辅导班的面试，还好过了！公交要坐二十站！
-周六就去辅导小孩子，回学校已经七点多了，买了个小柚子，还有橘子，回去跟他们一起分了一下，好便宜！
-</p>
-<br>
-
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-
-<li>巧口语吧下午5：40面试 【√】</li>
-
-</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1373,7 +1518,7 @@ for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1382,7 +1527,7 @@ for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
