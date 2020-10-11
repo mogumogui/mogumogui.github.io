@@ -288,7 +288,7 @@
                 
               
 
-              <time title="Created: 2020-10-11 15:16:58 / Modified: 20:06:57" itemprop="dateCreated datePublished" datetime="2020-10-11T15:16:58+08:00">2020-10-11</time>
+              <time title="Created: 2020-10-11 15:16:58 / Modified: 20:42:58" itemprop="dateCreated datePublished" datetime="2020-10-11T15:16:58+08:00">2020-10-11</time>
             </span>
           
             
@@ -307,12 +307,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 align="center">每日一题 ：第十届CB组 试题B： 年号字串 </h4>
+          <h4 align="center">每日一题 ：第十届CB组 试题D： 数的分解 </h4>
 
 <h5>题目描述：</h5>
 
 
-<p><img src="./images/LANQIAO/problemCB05.png" alt="试题B： 年号字串"></p>
+<p><img src="./images/LANQIAO/problemCB06.png" alt="试题D： 数的分解 "></p>
 <h4>自己的源码：</h4>
 
 <p>
@@ -360,7 +360,49 @@ int main ()
     return 0;
 }
 
-这个数的分解，已知是由三个数不同的数组成并且不包含2和4，所以可以直接用三重循环直接每个数每个数进行验证，验证时每个数进行判断是否满足规则！ 也是暴力题目</code></pre></p>
+这个数的分解，已知是由三个数不同的数组成并且不包含2和4，所以可以直接用三重循环直接每个数每个数进行验证，验证时每个数进行判断是否满足规则！ 也是暴力题目</code></pre></p><p>h4 align=”center”&gt;每日一题 ：第十届CB组 试题F： 特别数的和 </p>
+<h5>题目描述：</h5>
+
+
+<p><img src="./images/LANQIAO/problemCB09.png" alt="试题F： 特别数的和 "></p>
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+// define a function to judge the number  whether meets the condition
+
+bool Check(int n)
+{
+    while(n)
+    {
+        int tmp = n % 10;    
+        n = n / 10;  //  Get the next digit
+
+        if(t == 2 || t == 0 || t == 1 || t == 9) return false; // 
+    }
+    return true;
+}
+
+int main ()
+{
+    int n, sum =0;
+    cin &gt;&gt; n;
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if( Check(i) )
+        {
+            sum += i;
+        }
+    }
+
+    cout &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}
+
+这个跟上面的数的分解一个道理！</code></pre></p>
         
       
     </div>
