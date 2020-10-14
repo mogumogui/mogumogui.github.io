@@ -259,6 +259,159 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/04/2020-10-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/04/2020-10-04/" class="post-title-link" itemprop="url">2020年10月04日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-04 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-04T15:16:58+08:00">2020-10-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:23:07" itemprop="dateModified" datetime="2020-10-09T20:23:07+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：P1208 [USACO1.3]混合牛奶 Mixing Milk </h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>由于乳制品产业利润很低，所以降低原材料（牛奶）价格就变得十分重要。帮助 Marry 乳业找到最优的牛奶采购方案。</p>
+<p>Marry 乳业从一些奶农手中采购牛奶，并且每一位奶农为乳制品加工企业提供的价格是不同的。此外，就像每头奶牛每天只能挤出固定数量的奶，每位奶农每天能提供的牛奶数量是一定的。每天 Marry 乳业可以从奶农手中采购到小于或者等于奶农最大产量的整数数量的牛奶。</p>
+<p>给出 Marry 乳业每天对牛奶的需求量，还有每位奶农提供的牛奶单价和产量。计算采购足够数量的牛奶所需的最小花费。</p>
+<p>注：每天所有奶农的总产量大于 Marry 乳业的需求量。</p>
+<p></p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行二个整数 n,mn,m，表示需要牛奶的总量，和提供牛奶的农民个数。</p>
+<p>接下来 mm 行，每行两个整数 p_i,a_i，表示第 i 个农民牛奶的单价，和农民 i 一天最多能卖出的牛奶量。</p>
+<p>​    </p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>单独的一行包含单独的一个整数，表示 Marry 的牛奶制造公司拿到所需的牛奶所要的最小费用。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+int n,m,ans;
+
+struct Milk
+{
+    int price,pro_num;//牛奶单价和产量
+}milk[5005];//定义结构体
+
+bool cmp(Milk front,Milk rear)
+{
+    if(front.price!=rear.price)return front.price&lt;rear.price;
+    else return front.pro_num&gt;rear.pro_num;
+}
+
+int main()
+{
+    int i=1;
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=m;i++)
+        cin&gt;&gt;milk[i].price&gt;&gt;milk[i].price;
+
+    sort(milk+1,milk+1+m,cmp);//用刚定义的函数给它排序
+
+    while(n)//从n开始减起，直达n为零停止
+    {
+        if(milk[i].pro_num!=0)//当这头牛还没购买完
+        {
+            milk[i].pro_num--;//这头牛可购买数减一
+            ans+=milk[i].price;//总花费加上这头牛的单价
+            n--;//需求量减一
+        }
+        else i++;//购买完了换头牛
+    }
+    cout&lt;&lt;ans;
+    return 0;
+}</code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/03/2020-10-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1577,180 +1730,11 @@ namespace pcf {
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-28 23:27:07" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-09 20:12:35" itemprop="dateModified" datetime="2020-10-09T20:12:35+08:00">2020-10-09</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>prims算法</center>
-
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-
-const int MaxSize=20;
-const int INF=0x7fffffff;
-const int MIN=0xc0c0c0c0;
-template&lt;class T&gt;
-class MGraph{         
-        T vertex[MaxSize];
-        int visited[MaxSize];
-        int  edge[MaxSize][MaxSize]={{INF}};
-        int verNum,edgeNum;
-
-    public:
-        MGraph(); // 构造函数
-        void Prim(int v); // Prim算法 
-        int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 
-};
-
-template&lt;class T&gt;
-MGraph&lt;T&gt;::MGraph(){ //构造函数 
-
-        cout&lt;&lt;&quot;顶点的个数:&quot;;
-        cin&gt;&gt;verNum;
-//        cout&lt;&lt;&quot;输入顶点的值:&quot;;
-//        for(int i=0;i&lt;verNum;i++){        
-//            cin&gt;&gt;vertex[i];
-//        }
-        for(int i=0;i&lt;verNum;i++){        
-            for(int j=0;j&lt;verNum;j++)
-               edge[i][j]=INF;
-        }
-        cout&lt;&lt;&quot;边的条数:&quot;;
-        cin&gt;&gt;edgeNum;
-
-        for(int i=0;i&lt;edgeNum;i++){
-            int v1,v2;
-            cout&lt;&lt;&quot;输入边上的编号:&quot;;
-            cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
-            cout&lt;&lt;&quot;输入边上的权值:&quot;;
-            cin &gt;&gt; edge[v1][v2];
-            edge[v1][v2]=edge[v2][v1];
-        }
-}
-template&lt;class T&gt;
-void MGraph&lt;T&gt;::Prim(int v){
-
-    int adjvex[MaxSize],lowcost[MaxSize] = {INF};
-    //初始化辅助数组
-    for(int i = 0; i &lt; verNum; i++){
-        lowcost[i] = edge[v][i];
-        adjvex[i] = v;
-    } 
-    lowcost[v] = 0; //将顶点v加入集合U
-
-    for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
-        int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
-        cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
-        lowcost[MinJ] = 0;  // 将MinJ加入集合U
-
-        for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
-            if(edge[i][MinJ] &lt; lowcost[i]){
-                lowcost[i] = edge[i][MinJ];
-                adjvex[i] = MinJ; 
-            }
-        } 
-    }  
-} 
-template&lt;class T&gt;
-int MGraph&lt;T&gt;::MinEdge(int* LowCost, int verNum) {
-    int Min = INF, Min_i = 0;
-    for (int i = 0; i &lt; verNum; i++) {
-        if (LowCost[i] &lt; Min) {
-            Min = LowCost[i];
-            Min_i = i;
-        }
-    }
-    return Min_i;
-}
-int main(){
-    MGraph&lt;int&gt; g;
-    g.Prim(0);
-}</code></pre><p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
-
-<p>解决方案：</p>
-
-<p><img src="./images/CPlusPlusError00.png" alt></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mogumogui.github.io/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><a class="page-number" href="/mogumogui.github.io/page/4/">4</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/mogumogui.github.io/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/5/">5</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1798,7 +1782,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
