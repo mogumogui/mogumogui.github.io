@@ -259,6 +259,144 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/05/2020-10-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/05/2020-10-05/" class="post-title-link" itemprop="url">2020年10月05日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-05 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-05T15:16:58+08:00">2020-10-05</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:23:04" itemprop="dateModified" datetime="2020-10-09T20:23:04+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：P3397 地毯 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>在 n×n 的格子上有 m 个地毯。</p>
+<p>给出这些地毯的信息，问每个点被多少个地毯覆盖。</p>
+<p></p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行，两个正整数 n,m。意义如题所述。</p>
+<p>​    </p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>接下来 mm 行，每行两个坐标 (x1,y1) 和 (x2,y2)，代表一块地毯，左上角是 (x1,y1)，右下角是(x2,y2)。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;//万能头
+using namespace std;
+int a[1001][1001],m,n;
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;m;
+
+    int b,c,d,e;
+    int i,j,k;
+     for(i=1;i&lt;=m;i++)
+     {
+         cin&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e;
+         for(j=b;j&lt;=d;j++)
+        {
+             for(k=c;k&lt;=e;k++)
+            a[j][k]++;
+         }
+     }
+     for(i=1;i&lt;=n;i++)/
+     {
+         for(j=1;j&lt;=n;j++)
+         cout&lt;&lt;a[i][j]&lt;&lt;&quot; &quot;;
+         cout&lt;&lt;endl;
+     }
+
+return 0;
+}</code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/04/2020-10-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1650,86 +1788,6 @@ namespace pcf {
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/概率论复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/28/概率论复习/" class="post-title-link" itemprop="url">概率论复习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:37:36" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>
-
-<p><img src="./images/gailvlun00.png" alt></p>
-<p align="center">2019-11-28  利用伽马函数求解函数期望及方差</p>
-
-<p><img src="./images/Gailvlun03.jpg" alt></p>
-<p><img src="./images/Gailvlun01.png" alt="Gamma Function"><br><img src="./images/Gailvlun02.png" alt="Gamma Function"></p>
-</center>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1782,7 +1840,7 @@ namespace pcf {
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
