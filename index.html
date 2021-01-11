@@ -259,6 +259,79 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/11/2021-01-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2021/01/11/2021-01-11/" class="post-title-link" itemprop="url">2021年01月11日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-01-11 11:12:58 / Modified: 11:15:01" itemprop="dateCreated datePublished" datetime="2021-01-11T11:12:58+08:00">2021-01-11</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2021年1月11日-英语单词记录"><a href="#2021年1月11日-英语单词记录" class="headerlink" title="2021年1月11日 英语单词记录"></a>2021年1月11日 英语单词记录</h3><p><img src="./images/English/0111.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/12/28/2020-12-28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1470,117 +1543,6 @@ int main(){
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/09/2020-10-09/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/09/2020-10-09/" class="post-title-link" itemprop="url">2020年10月09日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-09 15:16:58 / Modified: 20:41:50" itemprop="dateCreated datePublished" datetime="2020-10-09T15:16:58+08:00">2020-10-09</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：第十届CB组 试题A： 组队 </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO/problemCB01.png" alt="试题A：组队"><br><img src="./images/LANQIAO/problemCB02.png" alt="试题A：组队"><br><img src="./images/LANQIAO/problemCB03.png" alt="试题A：组队"></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-int n,x;
-int win[1005],lose[1005],use[1005];
-int dp[1005]; 
-
-int main()
-{
-    cin &gt;&gt; n &gt;&gt; x;
-
-    // input the data 
-    for(int i = 1; i &lt;= n; i++)
-    {
-        scanf(&quot;%d%d%d&quot;,&amp;lose[i], &amp;win[i], &amp;use[i]);
-    }
-
-    for(int i = 1; i &lt;= n; i++)
-    {
-        for(int j = x; j &gt;= use[i]; j--)
-          dp[j]=max(dp[j]+lose[i],dp[j-use[i]]+win[i]);
-
-        for(int j = use[i]-1; j &gt;= 0; j--)
-          dp[j] += lose[i];
-    }
-
-    printf(&quot;%lld&quot;,5ll * dp[x]);
-    return 0;
-} </code></pre></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1633,7 +1595,7 @@ int main()
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1642,7 +1604,7 @@ int main()
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
@@ -1663,7 +1625,7 @@ int main()
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
