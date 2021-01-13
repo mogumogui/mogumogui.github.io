@@ -259,6 +259,162 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/01/2020-10-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/01/2020-10-01/" class="post-title-link" itemprop="url">2020年10月01日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-01 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-01T15:16:58+08:00">2020-10-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:23:16" itemprop="dateModified" datetime="2020-10-09T20:23:16+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ： P1908 逆序对</h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>猫猫 TOM 和小老鼠 JERRY 最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。</p>
+<p>最近，TOM 老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中 a_i &gt; a_j 且 i&lt; j 的有序对。知道这概念后，他们就比赛谁先算出给定的一段正整数序列中逆序对的数目。注意序列中可能有重复数字。</p>
+<p></p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行，一个数 n，表示序列中有 n个数。</p>
+<p>第二行 n 个数，表示给定的序列。序列中每个数字不超过 10^9。</p>
+<p>​    </p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>输出序列中逆序对的数目。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+
+using namespace std;
+int n,a[500010],c[500010];
+long long ans;
+
+void msort(int b,int e)
+{
+    if(b==e)  return;
+
+    int mid=(b+e)/2,i=b,j=mid+1,k=b;
+
+    msort(b,mid),msort(mid+1,e);
+
+    while(i&lt;=mid&amp;&amp;j&lt;=e)
+        if(a[i]&lt;=a[j])
+            c[k++]=a[i++];
+        else
+            c[k++]=a[j++],ans+=mid-i+1;
+
+    while(i&lt;=mid)
+        c[k++]=a[i++];
+
+    while(j&lt;=e)
+        c[k++]=a[j++];
+
+    for(int l=b;l&lt;=e;l++)
+        a[l]=c[l];
+} 
+
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;a[i]);
+
+    msort(1,n);
+
+    printf(&quot;%lld&quot;,ans);
+
+    return 0;
+}</code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/09/30/2020-09-30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1449,97 +1605,6 @@ int main(){
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/17/2019-11-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/17/2019-11-17/" class="post-title-link" itemprop="url">2019年11月17日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-17 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-17T09:38:49+08:00">2019-11-17</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-10 20:39:07" itemprop="dateModified" datetime="2020-10-10T20:39:07+08:00">2020-10-10</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>
-    早起去买去湖田敬老院要包的水饺皮还有水饺馅！
-    十一点钟左右回到学校，去学生街打包了泡菜回来吃，不爱嗷！
-    下午把高中没有看完的动漫过了一下！
-    晚上还是吃了熟悉的年糕和炒河粉！
-</p>
-<br>
-
-<li>去湖田敬老院 【√】</li>
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-<li>今日三十分钟运动量（篮球）——>"篮球场" 【√】</li>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1592,7 +1657,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
