@@ -58,26 +58,26 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="MUSHROOM">
-<meta property="og:url" content="https://github.com/mogumogui/mogumogui.github.io/archives/page/2/index.html">
+<meta property="og:url" content="https://github.com/mogumogui/mogumogui.github.io/page/6/index.html">
 <meta property="og:site_name" content="MUSHROOM">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MUSHROOM">
-  <link rel="canonical" href="https://github.com/mogumogui/mogumogui.github.io/archives/page/2/">
+  <link rel="canonical" href="https://github.com/mogumogui/mogumogui.github.io/page/6/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
+    isHome: true,
     isPost: false,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | MUSHROOM</title>
+  <title>MUSHROOM</title>
   
 
 
@@ -237,33 +237,6 @@
 
     
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
 </nav>
 </div>
     </header>
@@ -280,330 +253,132 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/09/15/Blog安装步骤/">
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
-         
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/09/15/Blog安装步骤/" class="post-title-link" itemprop="url">hexo Blog 搭建步骤</a>
           
-        <span class="collection-header">Nice! 51 posts in total. Keep on posting.</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-  
-  
+              
+                
+              
 
-  
+              <time title="Created: 2019-09-15 23:27:07" itemprop="dateCreated datePublished" datetime="2019-09-15T23:27:07+08:00">2019-09-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-08 22:48:15" itemprop="dateModified" datetime="2019-10-08T22:48:15+08:00">2019-10-08</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>
+#######个人博客hexo+github搭建######
+
+
+
+<p>#####Nodejs安装########</p>
+<p>——node npm ——-</p>
+<p>CMD 命令行 输入 node -v<br>               npm -v</p>
+<p>########Git安装########</p>
+<p>——git测试——</p>
+<p>CMD 命令行 输入 git</p>
+<p>########Github SHH配置</p>
+<p>找到 .ssh 文件 打开id_rsa.pub 复制粘贴到 github -&gt; settings -&gt; SSH and GPG keys 修改公钥</p>
+<p>########hexo安装########</p>
+<p>——创建一个BLOG文件夹—-</p>
+<p>CMD 命令行 cd BLOG 进入到BLOG目录下</p>
+<pre><code>输入 npm install hexo-cli -g 在目录下安装hexo
+
+输入 hexo init 文件名 创建一个第一个博客文章 // 克隆不要用内网会很慢</code></pre><p>——-进入创建的文章下安装依赖—–</p>
+<pre><code>输入 npm instal</code></pre><p>#######测试是否创建成功hexo######</p>
+<p>CMD 命令行<br>    输入 hexo s -p 端口</p>
+<p>hexo页面<br>    google 搜索 <a href="http://localhost：端口号" target="_blank" rel="noopener">http://localhost：端口号</a> 回车</p>
+<p>######hexo发布至github######<br>CMD 命令行<br>    输入 npm install hexo-deployer-git –save</p>
+<pre><code>输入 hexo d
+输入 git config --global user.email &quot;2500244682@qq.com&quot;
+输入 git config --global user.name &quot;mogumogu&quot;
+
+修改_config.yml下
+    deploy:
+      type: git
+      repo: https://github.com/mogumogui/mogumogui.github.io.git
+      branch: master</code></pre><p>效果页面<br>    google 搜索 <a href="https://mogumogui.github.io" target="_blank" rel="noopener">https://mogumogui.github.io</a></p>
+<p>########hexo主题选择######</p>
+<p>—–hexo next—-</p>
+<p>查找合适的字体 美观</p>
+<p>进去github 查询 hexo 找到合适的theme 下载zip</p>
+<pre><code>将下载后的文件放入BLOG目录下的theme文件夹下
+
+修改_config.yml下
+    themes: lanscape </code></pre></center>
+        
+      
     </div>
-  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-14T15:16:58+08:00"
-              content="2020-10-14">
-          10-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
         
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/14/2020-10-14/" itemprop="url">
-            <span itemprop="name">2020年10月14日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-13T15:16:58+08:00"
-              content="2020-10-13">
-          10-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/13/2020-10-13/" itemprop="url">
-            <span itemprop="name">2020年10月13日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-12T15:16:58+08:00"
-              content="2020-10-12">
-          10-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/12/2020-10-12 /" itemprop="url">
-            <span itemprop="name">2020年10月12日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-11T15:16:58+08:00"
-              content="2020-10-11">
-          10-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/11/2020-10-11/" itemprop="url">
-            <span itemprop="name">2020年10月11日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-10T15:16:58+08:00"
-              content="2020-10-10">
-          10-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/10/2020-10-10/" itemprop="url">
-            <span itemprop="name">2020年10月10日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-09T15:16:58+08:00"
-              content="2020-10-09">
-          10-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/09/2020-10-09/" itemprop="url">
-            <span itemprop="name">2020年10月09日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-08T15:16:58+08:00"
-              content="2020-10-08">
-          10-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/08/2020-10-08/" itemprop="url">
-            <span itemprop="name">2020年10月08日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-07T15:16:58+08:00"
-              content="2020-10-07">
-          10-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/07/2020-10-07/" itemprop="url">
-            <span itemprop="name">2020年10月07日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-06T15:16:58+08:00"
-              content="2020-10-06">
-          10-06
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/06/2020-10-06/" itemprop="url">
-            <span itemprop="name">2020年10月06日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-05T15:16:58+08:00"
-              content="2020-10-05">
-          10-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/mogumogui.github.io/2020/10/05/2020-10-05/" itemprop="url">
-            <span itemprop="name">2020年10月05日 （记）</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
+      </footer>
   </div>
   
   
   
+  </article>
+
+    
+  </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mogumogui.github.io/archives/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/mogumogui.github.io/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/archives/page/6/">6</a><a class="extend next" rel="next" href="/mogumogui.github.io/archives/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/mogumogui.github.io/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/5/">5</a><span class="page-number current">6</span>
   </nav>
-
 
 
           </div>

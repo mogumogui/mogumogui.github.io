@@ -259,6 +259,175 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-28 23:27:07" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:12:35" itemprop="dateModified" datetime="2020-10-09T20:12:35+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>prims算法</center>
+
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+const int MaxSize=20;
+const int INF=0x7fffffff;
+const int MIN=0xc0c0c0c0;
+template&lt;class T&gt;
+class MGraph{         
+        T vertex[MaxSize];
+        int visited[MaxSize];
+        int  edge[MaxSize][MaxSize]={{INF}};
+        int verNum,edgeNum;
+
+    public:
+        MGraph(); // 构造函数
+        void Prim(int v); // Prim算法 
+        int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 
+};
+
+template&lt;class T&gt;
+MGraph&lt;T&gt;::MGraph(){ //构造函数 
+
+        cout&lt;&lt;&quot;顶点的个数:&quot;;
+        cin&gt;&gt;verNum;
+//        cout&lt;&lt;&quot;输入顶点的值:&quot;;
+//        for(int i=0;i&lt;verNum;i++){        
+//            cin&gt;&gt;vertex[i];
+//        }
+        for(int i=0;i&lt;verNum;i++){        
+            for(int j=0;j&lt;verNum;j++)
+               edge[i][j]=INF;
+        }
+        cout&lt;&lt;&quot;边的条数:&quot;;
+        cin&gt;&gt;edgeNum;
+
+        for(int i=0;i&lt;edgeNum;i++){
+            int v1,v2;
+            cout&lt;&lt;&quot;输入边上的编号:&quot;;
+            cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
+            cout&lt;&lt;&quot;输入边上的权值:&quot;;
+            cin &gt;&gt; edge[v1][v2];
+            edge[v1][v2]=edge[v2][v1];
+        }
+}
+template&lt;class T&gt;
+void MGraph&lt;T&gt;::Prim(int v){
+
+    int adjvex[MaxSize],lowcost[MaxSize] = {INF};
+    //初始化辅助数组
+    for(int i = 0; i &lt; verNum; i++){
+        lowcost[i] = edge[v][i];
+        adjvex[i] = v;
+    } 
+    lowcost[v] = 0; //将顶点v加入集合U
+
+    for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
+        int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
+        cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
+        lowcost[MinJ] = 0;  // 将MinJ加入集合U
+
+        for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
+            if(edge[i][MinJ] &lt; lowcost[i]){
+                lowcost[i] = edge[i][MinJ];
+                adjvex[i] = MinJ; 
+            }
+        } 
+    }  
+} 
+template&lt;class T&gt;
+int MGraph&lt;T&gt;::MinEdge(int* LowCost, int verNum) {
+    int Min = INF, Min_i = 0;
+    for (int i = 0; i &lt; verNum; i++) {
+        if (LowCost[i] &lt; Min) {
+            Min = LowCost[i];
+            Min_i = i;
+        }
+    }
+    return Min_i;
+}
+int main(){
+    MGraph&lt;int&gt; g;
+    g.Prim(0);
+}</code></pre><p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
+
+<p>解决方案：</p>
+
+<p><img src="./images/CPlusPlusError00.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/18/数据库复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1072,106 +1241,11 @@ c:\Windows\System32&gt;msiexec.exe /x {A2122A9C-A699-4365-ADF8-68FEAC125D61}</co
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/10/13/2019-10-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/10/13/2019-10-13/" class="post-title-link" itemprop="url">2019年10月13日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-13 22:38:49" itemprop="dateCreated datePublished" datetime="2019-10-13T22:38:49+08:00">2019-10-13</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-10 20:39:37" itemprop="dateModified" datetime="2020-10-10T20:39:37+08:00">2020-10-10</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>《我的英雄学院IV》</center>
-
-<p><img src="./images/IMG_6957.PNG" alt></p>
-<center>轰！</center>
-
-<p><img src="./images/IMG_6950.PNG" alt></p>
-<center>小久！</center>
-
-<p><img src="./images/IMG_6959.PNG" alt></p>
-<center>咔酱！</center>
-
-<p><img src="./images/IMG_6958.PNG" alt></p>
-<center>明内！</center>
-
-<p><img src="./images/IMG_6960.PNG" alt></p>
-<center>明内！</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/mogumogui.github.io/page/5/">5</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/mogumogui.github.io/page/5/">5</a><a class="page-number" href="/mogumogui.github.io/page/6/">6</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1219,7 +1293,7 @@ c:\Windows\System32&gt;msiexec.exe /x {A2122A9C-A699-4365-ADF8-68FEAC125D61}</co
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
