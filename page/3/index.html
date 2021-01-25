@@ -259,6 +259,138 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/10/2020-10-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/10/2020-10-10/" class="post-title-link" itemprop="url">2020年10月10日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-10 15:16:58 / Modified: 20:24:41" itemprop="dateCreated datePublished" datetime="2020-10-10T15:16:58+08:00">2020-10-10</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：第十届CB组 试题B： 年号字串 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p><img src="./images/LANQIAO/problemCB04.png" alt="试题B： 年号字串"></p>
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    string str = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+    char ans[5];
+    int index = 0;
+    int n = 2019;
+    while(n){
+        int t = n % 26;
+        n = n / 26;
+        ans[index] = str[t - 1];
+        index++; 
+    }
+    for(int i = index - 1; i &gt;= 0; i--){
+        cout&lt;&lt;ans[i];
+    }
+    return 0;
+}
+
+
+1-&gt;  2019 % 26 = 17 (1) Q // 第一轮首先算出来个位数的字母
+       2019 / 26 = 77
+
+2-&gt; 77 % 26 = 25    (2) Y  // 接着十位数位置的字母
+       77 \ 26 = 2   (3) B // 最后是最高位
+
+直接手算可能会更快一点！</code></pre></p>
+
+<h4 align="center">每日一题 ：第十届CB组 试题C： 数列求值 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p><img src="./images/LANQIAO/problemCB05.png" alt="试题C： 数列求值"></p>
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int f[20190324];//数组空间太大，要放到main外面
+int main(){
+    f[0] = f[1] = f[2] = 1;
+    for(int i = 3; i &lt; 20190324; i++){
+        f[i] = (f[i - 1] + f[i - 2] + f[i - 3]) % 10000;
+    } 
+    cout&lt;&lt;f[20190323]&lt;&lt;endl;
+    return 0;
+}
+
+直接硬暴力，反正只要结果的！    </code></pre></p>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/09/2020-10-09/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1533,158 +1665,6 @@ int main()
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/09/30/2020-09-30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/09/30/2020-09-30/" class="post-title-link" itemprop="url">2020年09月30日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-09-30 15:16:58" itemprop="dateCreated datePublished" datetime="2020-09-30T15:16:58+08:00">2020-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-09 20:23:20" itemprop="dateModified" datetime="2020-10-09T20:23:20+08:00">2020-10-09</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ： P1115 最大子段和</h4>
-
-<h5>题目描述：</h5>
-
-
-<p>
-
-</p><p>给出一个长度为 nn 的序列 aa，选出其中连续且非空的一段使得这段和最大。</p>
-<p></p>
-
-<h4>输入格式：</h4>
-
-<p>
-
-</p><p>第一行是一个整数，表示序列的长度 n。</p>
-<p>第二行有 n个整数，第 i 个整数表示序列的第 i 个数字 a_i. </p>
-<p>​    </p>
-<p></p>
-
-<h4>输出格式：</h4>
-
-
-<p>
-
-</p><p>输出一行一个整数表示答案</p>
-<p></p>
-
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-#define RI register int
-#define LL long long
-using namespace std;
-
-int in()
-{
-    int qwq=0,qaq=1;char cc=getchar();
-    for(;!isdigit(cc);cc=getchar())if(cc==&apos;-&apos;)qaq=-1;
-    for(;isdigit(cc);cc=getchar()) qwq=(qwq&lt;&lt;1)+(qwq&lt;&lt;3)+(cc&amp;15);
-    return qwq*qaq;
-}
-
-const int N=5e5+5;
-const int INF=987654321;
-
-int n,m,l,r;
-int a[N],q[N],ans;
-
-int main()
-{
-    n=in();
-
-    ans=-INF,l=1,r=1;//初始化
-    for(RI i=1;i&lt;=n;++i)
-    {
-        a[i]=a[i-1]+in();//前缀和
-
-        //while(l&lt;=r &amp;&amp; q[l]+m&lt;i) ++l;//这里是用来把不在区间的数进行出队操作，由于这题的范围就是n，所以可以不用
-
-        ans=max(ans,a[i]-a[q[l]]);//更新最大值
-
-        while(l&lt;=r &amp;&amp; a[i]&lt;=a[q[r]]) --r;//维护队列单调性
-
-        q[++r]=i;//储存位置
-    }
-
-    cout&lt;&lt;ans&lt;&lt;endl;
-
-return 0;
-}</code></pre></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1737,7 +1717,7 @@ return 0;
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
