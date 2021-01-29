@@ -259,6 +259,79 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/16/2021-01-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2021/01/16/2021-01-16/" class="post-title-link" itemprop="url">2021年01月16日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-01-16 11:12:58 / Modified: 11:08:57" itemprop="dateCreated datePublished" datetime="2021-01-16T11:12:58+08:00">2021-01-16</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2021年1月16日-英语单词记录"><a href="#2021年1月16日-英语单词记录" class="headerlink" title="2021年1月16日 英语单词记录"></a>2021年1月16日 英语单词记录</h3><p><img src="./images/English/0116.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/15/2021-01-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1156,126 +1229,11 @@ int main(void)
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/14/2020-10-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/14/2020-10-14/" class="post-title-link" itemprop="url">2020年10月14日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-14 15:16:58 / Modified: 22:06:16" itemprop="dateCreated datePublished" datetime="2020-10-14T15:16:58+08:00">2020-10-14</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：第十届CB组 试题 I: 整数拼接 </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO2/problemi.png" alt="试题 I: 整数拼接"></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int N = 1e5 + 5;
-ll a[N], num[15];
-bool vis[15];
-ll connect(ll a, ll b)
-{
-    ll bb = b;
-    while (bb != 0) {
-        a *= 10;
-        bb /= 10;
-    }
-    a += b;
-    return a;
-} 
-int main(void)
-{
-    int n, k, res = 0;
-    cin &gt;&gt; n &gt;&gt; k;
-    for (int i = 0; i &lt; n; i++)    cin &gt;&gt; a[i];
-    for (int i = 0; i &lt;= 9; i++)  vis[(i * k) % 10] = 1;
-    for (int i = 0; i &lt; n; i++) {
-        for (int j = i + 1; j &lt; n; j++) {
-            ll x = a[i], y = a[j];
-            if (vis[y % 10] &amp;&amp; connect(x, y) % k == 0)
-                res++;
-            if (vis[x % 10] &amp;&amp; connect(y, x) % k == 0)
-                res++;
-        }
-    }
-    cout &lt;&lt; res &lt;&lt; endl;
-    return 0;
-}</code></pre></p>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mogumogui.github.io/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/6/">6</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/mogumogui.github.io/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mogumogui.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/7/">7</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1323,7 +1281,7 @@ int main(void)
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

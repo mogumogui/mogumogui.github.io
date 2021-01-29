@@ -259,6 +259,121 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/14/2020-10-14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/14/2020-10-14/" class="post-title-link" itemprop="url">2020年10月14日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-14 15:16:58 / Modified: 22:06:16" itemprop="dateCreated datePublished" datetime="2020-10-14T15:16:58+08:00">2020-10-14</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：第十届CB组 试题 I: 整数拼接 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p><img src="./images/LANQIAO2/problemi.png" alt="试题 I: 整数拼接"></p>
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e5 + 5;
+ll a[N], num[15];
+bool vis[15];
+ll connect(ll a, ll b)
+{
+    ll bb = b;
+    while (bb != 0) {
+        a *= 10;
+        bb /= 10;
+    }
+    a += b;
+    return a;
+} 
+int main(void)
+{
+    int n, k, res = 0;
+    cin &gt;&gt; n &gt;&gt; k;
+    for (int i = 0; i &lt; n; i++)    cin &gt;&gt; a[i];
+    for (int i = 0; i &lt;= 9; i++)  vis[(i * k) % 10] = 1;
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = i + 1; j &lt; n; j++) {
+            ll x = a[i], y = a[j];
+            if (vis[y % 10] &amp;&amp; connect(x, y) % k == 0)
+                res++;
+            if (vis[x % 10] &amp;&amp; connect(y, x) % k == 0)
+                res++;
+        }
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}</code></pre></p>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/13/2020-10-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1485,164 +1600,11 @@ return 0;
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/04/2020-10-04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/04/2020-10-04/" class="post-title-link" itemprop="url">2020年10月04日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-04 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-04T15:16:58+08:00">2020-10-04</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-09 20:23:07" itemprop="dateModified" datetime="2020-10-09T20:23:07+08:00">2020-10-09</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：P1208 [USACO1.3]混合牛奶 Mixing Milk </h4>
-
-<h5>题目描述：</h5>
-
-
-<p>
-
-</p><p>由于乳制品产业利润很低，所以降低原材料（牛奶）价格就变得十分重要。帮助 Marry 乳业找到最优的牛奶采购方案。</p>
-<p>Marry 乳业从一些奶农手中采购牛奶，并且每一位奶农为乳制品加工企业提供的价格是不同的。此外，就像每头奶牛每天只能挤出固定数量的奶，每位奶农每天能提供的牛奶数量是一定的。每天 Marry 乳业可以从奶农手中采购到小于或者等于奶农最大产量的整数数量的牛奶。</p>
-<p>给出 Marry 乳业每天对牛奶的需求量，还有每位奶农提供的牛奶单价和产量。计算采购足够数量的牛奶所需的最小花费。</p>
-<p>注：每天所有奶农的总产量大于 Marry 乳业的需求量。</p>
-<p></p>
-
-<h4>输入格式：</h4>
-
-<p>
-
-</p><p>第一行二个整数 n,mn,m，表示需要牛奶的总量，和提供牛奶的农民个数。</p>
-<p>接下来 mm 行，每行两个整数 p_i,a_i，表示第 i 个农民牛奶的单价，和农民 i 一天最多能卖出的牛奶量。</p>
-<p>​    </p>
-<p></p>
-
-<h4>输出格式：</h4>
-
-
-<p>
-
-</p><p>单独的一行包含单独的一个整数，表示 Marry 的牛奶制造公司拿到所需的牛奶所要的最小费用。</p>
-<p></p>
-
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-
-int n,m,ans;
-
-struct Milk
-{
-    int price,pro_num;//牛奶单价和产量
-}milk[5005];//定义结构体
-
-bool cmp(Milk front,Milk rear)
-{
-    if(front.price!=rear.price)return front.price&lt;rear.price;
-    else return front.pro_num&gt;rear.pro_num;
-}
-
-int main()
-{
-    int i=1;
-    cin&gt;&gt;n&gt;&gt;m;
-    for(int i=1;i&lt;=m;i++)
-        cin&gt;&gt;milk[i].price&gt;&gt;milk[i].price;
-
-    sort(milk+1,milk+1+m,cmp);//用刚定义的函数给它排序
-
-    while(n)//从n开始减起，直达n为零停止
-    {
-        if(milk[i].pro_num!=0)//当这头牛还没购买完
-        {
-            milk[i].pro_num--;//这头牛可购买数减一
-            ans+=milk[i].price;//总花费加上这头牛的单价
-            n--;//需求量减一
-        }
-        else i++;//购买完了换头牛
-    }
-    cout&lt;&lt;ans;
-    return 0;
-}</code></pre></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mogumogui.github.io/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><a class="page-number" href="/mogumogui.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mogumogui.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/6/">6</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/mogumogui.github.io/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/mogumogui.github.io/">1</a><a class="page-number" href="/mogumogui.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mogumogui.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mogumogui.github.io/page/7/">7</a><a class="extend next" rel="next" href="/mogumogui.github.io/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1690,7 +1652,7 @@ int main()
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
