@@ -259,6 +259,155 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/06/2020-10-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/06/2020-10-06/" class="post-title-link" itemprop="url">2020年10月06日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-06 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-06T15:16:58+08:00">2020-10-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:22:51" itemprop="dateModified" datetime="2020-10-09T20:22:51+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：P1657 选书 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>学校放寒假时，信息学奥赛辅导老师有1,2,3……x本书，要分给参加培训的x个人，每人只能选一本书，但是每人有两本喜欢的书。老师事先让每个人将自己喜欢的书填写在一张表上。然后根据他们填写的表来分配书本，希望设计一个程序帮助老师求出所有可能的分配方案，使每个学生都满意。</p>
+<p></p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行： 一个数x<br>第二行： ~ 第1+x 行： 每行两个数，表示ai喜欢的书的序号</p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>只有一个数：总方案数total。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int fav[10001][2],tot=0;
+int n;
+int flag[10001]={false};
+void dfs(int num)
+{
+    if(num==n+1)//超过n就代表搜完了
+    {
+        tot++;
+        return;
+    }
+    if(!flag[fav[num][0]])//case1
+    {
+        flag[fav[num][0]]=true;
+        dfs(num+1);
+        flag[fav[num][0]]=false;
+    }
+    if(!flag[fav[num][1]])//case2
+    {
+        flag[fav[num][1]]=true;
+        dfs(num+1);
+        flag[fav[num][1]]=false;
+    }
+    //千万别忘记回溯哦QAQ
+}
+int main()
+{
+    cin&gt;&gt;n;
+    if(n==0)
+    {
+        cout&lt;&lt;0;
+        return 0;
+    }
+    for(int i=1;i&lt;=n;i++)
+        cin&gt;&gt;fav[i][0]&gt;&gt;fav[i][1];
+    dfs(1);
+    cout&lt;&lt;tot;
+    return 0;
+}</code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/05/2020-10-05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1713,81 +1862,6 @@ namespace pcf {
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/01/18/2020-1-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/01/18/2020-1-18/" class="post-title-link" itemprop="url">2020年1月18日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-01-18 09:38:49 / Modified: 20:12:01" itemprop="dateCreated datePublished" datetime="2020-01-18T09:38:49+08:00">2020-01-18</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>若是没有发现捷径太费劲，那就试着去下苦心去尝试吧</center>
-
-<p><img src="./images/luotuo01.png" alt><br><img src="./images/luotuo02.png" alt><br><img src="./images/luotuo03.png" alt></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1840,7 +1914,7 @@ namespace pcf {
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
