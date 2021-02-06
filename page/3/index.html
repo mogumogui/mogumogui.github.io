@@ -259,6 +259,79 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/13/2021-01-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2021/01/13/2021-01-13/" class="post-title-link" itemprop="url">2021年01月13日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-01-13 11:12:58 / Modified: 15:36:55" itemprop="dateCreated datePublished" datetime="2021-01-13T11:12:58+08:00">2021-01-13</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2021年1月13日-英语单词记录"><a href="#2021年1月13日-英语单词记录" class="headerlink" title="2021年1月13日 英语单词记录"></a>2021年1月13日 英语单词记录</h3><p><img src="./images/English/0113.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/12/2021-01-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1316,174 +1389,6 @@ int main(){
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/11/2020-10-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/11/2020-10-11/" class="post-title-link" itemprop="url">2020年10月11日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-11 15:16:58 / Modified: 20:47:05" itemprop="dateCreated datePublished" datetime="2020-10-11T15:16:58+08:00">2020-10-11</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：第十届CB组 试题D： 数的分解 </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO/problemCB06.png" alt="试题D： 数的分解 "></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-// define a function to judge the number  whether meets the condition
-
-bool Check(int n)
-{
-    while(n)
-    {
-        int tmp = n % 10;    
-        n = n / 10;  //  Get the next digit
-
-        if(tmp == 2 || tmp == 4) return false; // 
-    }
-    return true;
-}
-
-int main ()
-{
-    int ans = 0;
-    for(int front = 1; front &lt; 2019; front++)
-    {
-        if( Check(front) ) // judge the first number
-        {
-            for(int mid = front + 1; mid &lt; 2019; mid++)
-            {
-                if(Check(mid)) // judge the second
-                {
-                    int rear = 2019-front-rear;
-
-                    if(rear &gt; front &amp;&amp; Check(rear) ) // judge the third
-                    {
-                        ans++;
-                    }
-                }    
-            }
-        }
-    }
-
-    cout &lt;&lt; ans &lt;&lt; endl;
-    return 0;
-}
-
-这个数的分解，已知是由三个数不同的数组成并且不包含2和4，所以可以直接用三重循环直接每个数每个数进行验证，验证时每个数进行判断是否满足规则！ 也是暴力题目</code></pre></p><h4 align="center">每日一题 ：第十届CB组 试题F： 特别数的和 </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO/problemCB09.png" alt="试题F： 特别数的和 "></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-// define a function to judge the number  whether meets the condition
-
-bool Check(int n)
-{
-    while(n)
-    {
-        int tmp = n % 10;    
-        n = n / 10;  //  Get the next digit
-
-        if(t == 2 || t == 0 || t == 1 || t == 9) return false; // 
-    }
-    return true;
-}
-
-int main ()
-{
-    int n, sum =0;
-    cin &gt;&gt; n;
-    for(int i = 1; i &lt;= n; i++)
-    {
-        if( Check(i) )
-        {
-            sum += i;
-        }
-    }
-
-    cout &lt;&lt; sum &lt;&lt; endl;
-    return 0;
-}
-
-这个跟上面的数的分解一个道理！</code></pre></p>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1536,7 +1441,7 @@ int main ()
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
