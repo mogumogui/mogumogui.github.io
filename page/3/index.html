@@ -259,6 +259,79 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/18/2021-01-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2021/01/18/2021-01-18/" class="post-title-link" itemprop="url">2021年01月18日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-01-18 11:12:58 / Modified: 20:45:55" itemprop="dateCreated datePublished" datetime="2021-01-18T11:12:58+08:00">2021-01-18</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2021年1月18日-英语单词记录"><a href="#2021年1月18日-英语单词记录" class="headerlink" title="2021年1月18日 英语单词记录"></a>2021年1月18日 英语单词记录</h3><p><img src="./images/English/0118.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/17/2021-01-17/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1072,108 +1145,6 @@ int main()
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/16/2020-10-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/16/2020-10-16/" class="post-title-link" itemprop="url">2020年10月16日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-16 15:16:58 / Modified: 20:42:04" itemprop="dateCreated datePublished" datetime="2020-10-16T15:16:58+08:00">2020-10-16</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：第十届CB组 试题H：等差数列  </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO/problem12.png" alt="试题H：等差数列 "><br><img src="./images/LANQIAO/problem13.png" alt="试题H：等差数列 "></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int Ai[100005];
-int main(){
-    int N;
-    cin&gt;&gt;N;
-    for(int i = 0; i &lt; N; i++)
-        cin&gt;&gt;Ai[i];
-    sort(Ai, Ai + N);
-    int min_d = Ai[1] - Ai[0]; //升序排的序，所以公差大于0 
-    if(min_d == 0) //如果 Ai[1] - Ai[0]等于0，说明这些数必定全部相等，那最小值就是N 
-        cout&lt;&lt;N&lt;&lt;endl;
-    else{
-        int gcd = min_d; 
-        for(int i = 2; i &lt; N; i++){
-            min_d = __gcd(min_d, Ai[i] - Ai[i - 1]); 
-        }
-        cout&lt;&lt;(Ai[N - 1] - Ai[0]) / min_d + 1&lt;&lt;endl;
-    }
-    return 0;
-}</code></pre></p>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1226,7 +1197,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
