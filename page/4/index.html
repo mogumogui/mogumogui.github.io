@@ -259,6 +259,79 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/14/2021-01-14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2021/01/14/2021-01-14/" class="post-title-link" itemprop="url">2021年01月14日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2021-01-14 11:12:58 / Modified: 10:16:49" itemprop="dateCreated datePublished" datetime="2021-01-14T11:12:58+08:00">2021-01-14</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="2021年1月14日-英语单词记录"><a href="#2021年1月14日-英语单词记录" class="headerlink" title="2021年1月14日 英语单词记录"></a>2021年1月14日 英语单词记录</h3><p><img src="./images/English/0114.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2021/01/13/2021-01-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1238,157 +1311,6 @@ int main(){
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/12/2020-10-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2020/10/12/2020-10-12/" class="post-title-link" itemprop="url">2020年10月12日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-10-12 15:16:58 / Modified: 20:46:18" itemprop="dateCreated datePublished" datetime="2020-10-12T15:16:58+08:00">2020-10-12</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 align="center">每日一题 ：第十届CB组 试题E： 迷宫 </h4>
-
-<h5>题目描述：</h5>
-
-
-<p><img src="./images/LANQIAO/problemCB07.png" alt="试题E： 迷宫 "><br><img src="./images/LANQIAO/problemCB08.png" alt="试题E： 迷宫 "></p>
-<h4>自己的源码：</h4>
-
-<p>
-
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-string maze[30]; //存放迷宫 
-int vis[30][50]; //是否访问过 
-char ans[1000]; //答案序列 
-queue&lt;int&gt; que; 
-int next_x[4] = {1, 0, 0, -1}; //注意x，y的顺序，D&lt;L&lt;R&lt;U搜出来的必定字典序最小
-int next_y[4] = {0, -1, 1, 0}; //{x, y} = {1, 0}表示向下 ,{0, -1}左,{0, 1}右,{-1, 0}上 
-int DLRU[4] = {&apos;D&apos;, &apos;L&apos;, &apos;R&apos;, &apos;U&apos;};
-int flag = 0; //用于dfs中 
-void bfs(int x, int y){
-    que.push(x);
-    que.push(y);
-    vis[x][y] = 1;
-    while(!que.empty()){
-        int current_x = que.front();
-        que.pop();
-        int current_y = que.front();
-        que.pop();
-        if(current_x == 29 &amp;&amp; current_y == 49) //如果走到了终点就退出循环 
-            break;
-        for(int i = 0; i &lt; 4; i++){ //这里是判断四个方向是否可到达 
-            int next_step_x = current_x + next_x[i];
-            int next_step_y = current_y + next_y[i];
-            if(next_step_x &lt; 30 &amp;&amp; next_step_x &gt;= 0 &amp;&amp; next_step_y &lt; 50 &amp;&amp; next_step_y &gt;= 0){ //不能越界 
-                if(maze[next_step_x][next_step_y] == &apos;0&apos;) //如果是0代表可达 
-                    if(vis[next_step_x][next_step_y] == 0){ //判断这个点有没有访问过，等于0代表没有访问过 
-                        que.push(next_step_x);
-                        que.push(next_step_y);
-                        vis[next_step_x][next_step_y] = vis[current_x][current_y] + 1; //当前节点vis值等于上一层+1，这样方便后面寻找走的路径 
-                    }
-            }
-        }
-    }
-}
-void dfs(int index, int x, int y){//这里深搜是从终点开始，所以要按照字典序最小，那么方向顺序就和正向相反，就是URLD 
-    if(flag == 1) return; //如果找到了第一个答案序列，不进行下面的搜索 
-    if(index == 1){
-        flag = 1; // 用来判断是否搜到第一个答案，如果搜到了接下来的搜索就不用干了 
-        for(int i = 2; i &lt;= vis[29][49]; i++)
-            cout&lt;&lt;ans[i];
-        cout&lt;&lt;endl;
-        return;
-    }
-    for(int i = 3; i &gt;= 0; i--){ //顺序要相反 
-        int pre_x = x + next_x[i];
-        int pre_y = y + next_y[i];
-        if(pre_x &lt; 30 &amp;&amp; pre_x &gt;= 0 &amp;&amp; pre_y &lt; 50 &amp;&amp; pre_y &gt;= 0){
-            if(vis[pre_x][pre_y] + 1 == vis[x][y]){
-                ans[index] = DLRU[3 - i]; 
-                dfs(index - 1, pre_x, pre_y);
-                ans[index] = &apos; &apos;;
-            }
-        }
-    }
-}
-int main(){
-    for(int i = 0; i &lt; 30; i++)
-        cin&gt;&gt;maze[i];
-    bfs(0, 0);
-    dfs(vis[29][49], 29, 49);
-    for(int i = 0; i &lt; 30; i++){
-        for(int j = 0; j &lt; 50; j++){
-            // cout&lt;&lt;vis[i][j]&lt;&lt;&quot; &quot;;
-            printf(&quot;%3d &quot;, vis[i][j]);
-        }
-        cout&lt;&lt;endl;
-    }
-    return 0;
-}</code></pre></p>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1441,7 +1363,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

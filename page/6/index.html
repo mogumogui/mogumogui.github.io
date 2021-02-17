@@ -259,6 +259,177 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/02/2020-10-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/02/2020-10-02/" class="post-title-link" itemprop="url">2020年10月02日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-02 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-02T15:16:58+08:00">2020-10-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:23:11" itemprop="dateModified" datetime="2020-10-09T20:23:11+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ： P1433 吃奶酪</h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+房间里放着 nn 块奶酪。一只小老鼠要把它们都吃掉，问至少要跑多少距离？老鼠一开始在 (0,0)(0,0) 点处。
+
+</p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行有一个整数，表示奶酪的数量 nn。</p>
+<p>第 22 到第 (n + 1)(n+1) 行，每行两个实数，第 (i + 1)(i+1) 行的实数分别表示第 ii 块奶酪的横纵坐标 x_i, y_i。</p>
+<p>​    </p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>输出一行一个实数，表示要跑的最少距离，保留 22 位小数。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+// define a structure
+
+struct Point{
+    double x,y;
+}point[20];
+
+// caculate the distance between front and rear 
+double Cal_Dis(Point front, Point rear)
+{
+    double s = front.x - rear.x;
+    double m = front.y - rear.y;    
+    return sqrt(s*s + m*m);
+}
+
+int n;
+double ans = 0x3f3f3f3f;
+//int sourse = 0;
+bool visit[20] = {0}; // define all the point isn&apos;t visited
+
+void Find_Min(Point p,const int sourse,double dist)
+{
+    if(dist &gt;= ans) return; // cut
+
+    if(sourse == n) 
+    {
+        ans = min(dist,ans);
+        return;
+    }
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(!visit[i])
+        {
+            visit[i] = true;
+            Find_Min(point[i],sourse+1,dist+Cal_Dis(p,point[i]));    
+            visit[i] = false;
+        }
+    }
+}
+
+int main()
+{
+    cin &gt;&gt; n; // input the number of the point
+
+    point[0] = (Point){0,0}; // let the sourse point be the first point
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        scanf(&quot;%lf%lf&quot;,&amp;point[i].x,&amp;point[i].y); // input the point
+    }
+
+    Find_Min(point[0],0,0.0);
+
+    printf(&quot;%.2f&quot;,ans);
+
+    return 0;
+ } </code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/01/2020-10-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1199,86 +1370,6 @@ namespace pcf {
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/概率论复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/28/概率论复习/" class="post-title-link" itemprop="url">概率论复习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:37:36" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>
-
-<p><img src="./images/gailvlun00.png" alt></p>
-<p align="center">2019-11-28  利用伽马函数求解函数期望及方差</p>
-
-<p><img src="./images/Gailvlun03.jpg" alt></p>
-<p><img src="./images/Gailvlun01.png" alt="Gamma Function"><br><img src="./images/Gailvlun02.png" alt="Gamma Function"></p>
-</center>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1448,6 +1539,86 @@ int main(){
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/概率论复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2019/11/28/概率论复习/" class="post-title-link" itemprop="url">概率论复习</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-28 23:27:07 / Modified: 22:37:36" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center>
+
+<p><img src="./images/gailvlun00.png" alt></p>
+<p align="center">2019-11-28  利用伽马函数求解函数期望及方差</p>
+
+<p><img src="./images/Gailvlun03.jpg" alt></p>
+<p><img src="./images/Gailvlun01.png" alt="Gamma Function"><br><img src="./images/Gailvlun02.png" alt="Gamma Function"></p>
+</center>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/18/数据库复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1519,92 +1690,6 @@ int main(){
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/18/2019-11-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/18/2019-11-18/" class="post-title-link" itemprop="url">2019年11月18日 （记）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-18 09:38:49" itemprop="dateCreated datePublished" datetime="2019-11-18T09:38:49+08:00">2019-11-18</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-10 20:40:02" itemprop="dateModified" datetime="2020-10-10T20:40:02+08:00">2020-10-10</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <li>复习数据库原理第四章（函数依赖及无损分解） 【√】</li>
-<li>英语六级单词 ——>"扇贝单词" 【√】</li>
-
-<li>复习概率论第一章（全概率公式和叶贝斯公式） 【√】</li>
-<li>小元老师高数概率论线代</li>
-
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1657,7 +1742,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
