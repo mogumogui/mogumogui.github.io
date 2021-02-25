@@ -259,6 +259,144 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/05/2020-10-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MUSHROOM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MUSHROOM">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/mogumogui.github.io/2020/10/05/2020-10-05/" class="post-title-link" itemprop="url">2020年10月05日 （记）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-10-05 15:16:58" itemprop="dateCreated datePublished" datetime="2020-10-05T15:16:58+08:00">2020-10-05</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-09 20:23:04" itemprop="dateModified" datetime="2020-10-09T20:23:04+08:00">2020-10-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 align="center">每日一题 ：P3397 地毯 </h4>
+
+<h5>题目描述：</h5>
+
+
+<p>
+
+</p><p>在 n×n 的格子上有 m 个地毯。</p>
+<p>给出这些地毯的信息，问每个点被多少个地毯覆盖。</p>
+<p></p>
+
+<h4>输入格式：</h4>
+
+<p>
+
+</p><p>第一行，两个正整数 n,m。意义如题所述。</p>
+<p>​    </p>
+<p></p>
+
+<h4>输出格式：</h4>
+
+
+<p>
+
+</p><p>接下来 mm 行，每行两个坐标 (x1,y1) 和 (x2,y2)，代表一块地毯，左上角是 (x1,y1)，右下角是(x2,y2)。</p>
+<p></p>
+
+<h4>自己的源码：</h4>
+
+<p>
+
+<pre><code>#include&lt;bits/stdc++.h&gt;//万能头
+using namespace std;
+int a[1001][1001],m,n;
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;m;
+
+    int b,c,d,e;
+    int i,j,k;
+     for(i=1;i&lt;=m;i++)
+     {
+         cin&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e;
+         for(j=b;j&lt;=d;j++)
+        {
+             for(k=c;k&lt;=e;k++)
+            a[j][k]++;
+         }
+     }
+     for(i=1;i&lt;=n;i++)/
+     {
+         for(j=1;j&lt;=n;j++)
+         cout&lt;&lt;a[i][j]&lt;&lt;&quot; &quot;;
+         cout&lt;&lt;endl;
+     }
+
+return 0;
+}</code></pre></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2020/10/04/2020-10-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1650,175 +1788,6 @@ namespace pcf {
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mogumogui/mogumogui.github.io/mogumogui.github.io/2019/11/28/数据结构复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MUSHROOM">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/mogumogui.github.io/images/IMG_0837.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MUSHROOM">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/mogumogui.github.io/2019/11/28/数据结构复习/" class="post-title-link" itemprop="url">数据结构复习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-28 23:27:07" itemprop="dateCreated datePublished" datetime="2019-11-28T23:27:07+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-09 20:12:35" itemprop="dateModified" datetime="2020-10-09T20:12:35+08:00">2020-10-09</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center>prims算法</center>
-
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-
-const int MaxSize=20;
-const int INF=0x7fffffff;
-const int MIN=0xc0c0c0c0;
-template&lt;class T&gt;
-class MGraph{         
-        T vertex[MaxSize];
-        int visited[MaxSize];
-        int  edge[MaxSize][MaxSize]={{INF}};
-        int verNum,edgeNum;
-
-    public:
-        MGraph(); // 构造函数
-        void Prim(int v); // Prim算法 
-        int MinEdge(int *LowCost,int VexNum); // 寻找最小邻接点 
-};
-
-template&lt;class T&gt;
-MGraph&lt;T&gt;::MGraph(){ //构造函数 
-
-        cout&lt;&lt;&quot;顶点的个数:&quot;;
-        cin&gt;&gt;verNum;
-//        cout&lt;&lt;&quot;输入顶点的值:&quot;;
-//        for(int i=0;i&lt;verNum;i++){        
-//            cin&gt;&gt;vertex[i];
-//        }
-        for(int i=0;i&lt;verNum;i++){        
-            for(int j=0;j&lt;verNum;j++)
-               edge[i][j]=INF;
-        }
-        cout&lt;&lt;&quot;边的条数:&quot;;
-        cin&gt;&gt;edgeNum;
-
-        for(int i=0;i&lt;edgeNum;i++){
-            int v1,v2;
-            cout&lt;&lt;&quot;输入边上的编号:&quot;;
-            cin&gt;&gt;v1&gt;&gt;v2 ;//边是输入了两个顶点的编号 
-            cout&lt;&lt;&quot;输入边上的权值:&quot;;
-            cin &gt;&gt; edge[v1][v2];
-            edge[v1][v2]=edge[v2][v1];
-        }
-}
-template&lt;class T&gt;
-void MGraph&lt;T&gt;::Prim(int v){
-
-    int adjvex[MaxSize],lowcost[MaxSize] = {INF};
-    //初始化辅助数组
-    for(int i = 0; i &lt; verNum; i++){
-        lowcost[i] = edge[v][i];
-        adjvex[i] = v;
-    } 
-    lowcost[v] = 0; //将顶点v加入集合U
-
-    for(int i = 0; i &lt; verNum-1; i++) { // 迭代vexNum-1次 
-        int MinJ = MinEdge(lowcost,verNum); // 寻找最短边的邻接点MinJ
-        cout &lt;&lt; MinJ &lt;&lt; &quot; &quot; &lt;&lt; adjvex[MinJ] &lt;&lt; &quot; &quot;  &lt;&lt; lowcost[MinJ] &lt;&lt; endl;
-        lowcost[MinJ] = 0;  // 将MinJ加入集合U
-
-        for(int i = 0; i &lt; verNum; i++){ // 调整辅助数组 
-            if(edge[i][MinJ] &lt; lowcost[i]){
-                lowcost[i] = edge[i][MinJ];
-                adjvex[i] = MinJ; 
-            }
-        } 
-    }  
-} 
-template&lt;class T&gt;
-int MGraph&lt;T&gt;::MinEdge(int* LowCost, int verNum) {
-    int Min = INF, Min_i = 0;
-    for (int i = 0; i &lt; verNum; i++) {
-        if (LowCost[i] &lt; Min) {
-            Min = LowCost[i];
-            Min_i = i;
-        }
-    }
-    return Min_i;
-}
-int main(){
-    MGraph&lt;int&gt; g;
-    g.Prim(0);
-}</code></pre><p>遇到的问题 C++ error: “Array must be initialized with a brace enclosed initializer</p>
-
-<p>解决方案：</p>
-
-<p><img src="./images/CPlusPlusError00.png" alt></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1871,7 +1840,7 @@ int main(){
         
           <a href="/mogumogui.github.io/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
